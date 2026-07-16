@@ -3909,10 +3909,10 @@
       --experience-green: #173b35;
       --experience-blue: #102f3d;
       --experience-shadow: 0 38px 110px rgba(25, 32, 29, .24);
-      --scene-kiosk: url("https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/kiosk.png");
-      --scene-staff: url("https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/staff.png");
-      --scene-tv: url("https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/tv.png");
-      --scene-payment: url("https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/kaunterpembayaran.png");
+      --scene-kiosk: url("./PICPASTPROJECT/kiosk.png");
+      --scene-staff: url("./PICPASTPROJECT/staff.png");
+      --scene-tv: url("./PICPASTPROJECT/tv.png");
+      --scene-payment: url("./PICPASTPROJECT/kaunterpembayaran.png");
     }
 
     body {
@@ -15805,7 +15805,7 @@
     /* -------------------------
        Tablet and smaller
        ------------------------- */
-    @media (max-width: 1100px) {
+    @media (max-width: 1279px) {
       body.qms-responsive-layout {
         overflow-y: auto !important;
         overflow-x: hidden !important;
@@ -16332,7 +16332,7 @@
     /* -------------------------
        Phone portrait
        ------------------------- */
-    @media (max-width: 640px) {
+    @media (max-width: 767px) {
       body.qms-responsive-layout .slide {
         padding:
           calc(68px + env(safe-area-inset-top))
@@ -18070,22 +18070,269 @@
       repository: "https://github.com/SUFITECNO/SUFITECNOWEB",
       commit: "d98b4f33738be92d0593550681524fbc7781af99",
       rawBase: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99",
-      logo: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PIC%20LOGO/Main%20Logo%20%28Black%20Text%29.png",
+      logo: "./PIC%20LOGO/Main%20Logo%20%28Black%20Text%29.png",
       teamFaces: Object.freeze({
-        boss: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/team%20face/boss.png",
-        it: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/team%20face/it.png",
-        admin: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/team%20face/admin.png"
+        boss: "./team%20face/optimized/boss-320.png",
+        it: "./team%20face/optimized/it-320.png",
+        admin: "./team%20face/optimized/admin-320.png"
       }),
       pastProjects: Object.freeze({
-        kiosk: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/kiosk.png",
-        staff: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/staff.png",
-        tv: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/tv.png",
-        payment: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/kaunterpembayaran.png"
+        kiosk: "./PICPASTPROJECT/kiosk.png",
+        staff: "./PICPASTPROJECT/staff.png",
+        tv: "./PICPASTPROJECT/tv.png",
+        payment: "./PICPASTPROJECT/kaunterpembayaran.png"
       }),
-      voiceBase: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/Voice/",
-      defaultVideo: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/video/Ytmp3.gg_YouTube_MALAYSIA-Cinematic-Travel-Video-Stock-Fo_Media_8V7czbc0kxg_001_1080p%20%281%29.mp4"
+      voiceBase: "./Voice/",
+      defaultVideo: "./video/Ytmp3.gg_YouTube_MALAYSIA-Cinematic-Travel-Video-Stock-Fo_Media_8V7czbc0kxg_001_1080p%20%281%29.mp4"
     });
   </script>
+
+  <style id="qms-device-breakpoints-final">
+    /* The desktop composition is intentionally untouched at 1280px and above. */
+    @media (min-width: 768px) and (max-width: 1279px) {
+      body.qms-responsive-layout .slide-frame {
+        width: min(94vw, 1080px) !important;
+      }
+
+      body.qms-responsive-layout .intro-action-row {
+        justify-content: center !important;
+      }
+
+      body.qms-responsive-layout .start-button {
+        min-height: 52px !important;
+        margin-inline: auto !important;
+      }
+
+      body.qms-responsive-layout .demo-pick-grid,
+      body.qms-responsive-layout .staff-flow-grid,
+      body.qms-responsive-layout .service-grid,
+      body.qms-responsive-layout .counter-options,
+      body.qms-responsive-layout .counter-list,
+      body.qms-responsive-layout .computer-counter-grid,
+      body.qms-responsive-layout .database-options-grid,
+      body.qms-responsive-layout .platform-choice-grid,
+      body.qms-responsive-layout .admin-feature-stack,
+      body.qms-responsive-layout .admin-kpi-row,
+      body.qms-responsive-layout .admin-traffic-metrics,
+      body.qms-responsive-layout .admin-staff-access-grid,
+      body.qms-responsive-layout .report-metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      body.qms-responsive-layout .letter-stage {
+        max-width: 620px !important;
+        margin-inline: auto !important;
+      }
+    }
+
+    @media (min-width: 1024px) and (max-width: 1279px) {
+      body.qms-responsive-layout .intro-hero {
+        grid-template-columns: minmax(0, 1fr) minmax(330px, .72fr) !important;
+        gap: clamp(20px, 3vw, 38px) !important;
+      }
+
+      body.qms-responsive-layout .intro-copy {
+        text-align: left !important;
+      }
+
+      body.qms-responsive-layout .intro-copy h1,
+      body.qms-responsive-layout .sufi-hero-subtitle {
+        margin-inline: 0 !important;
+      }
+
+      body.qms-responsive-layout .intro-action-row {
+        justify-content: flex-start !important;
+      }
+
+      body.qms-responsive-layout .start-button {
+        margin-inline: 0 !important;
+      }
+
+      body.qms-responsive-layout .staff-flow-grid,
+      body.qms-responsive-layout .service-grid,
+      body.qms-responsive-layout .counter-options,
+      body.qms-responsive-layout .counter-list,
+      body.qms-responsive-layout .computer-counter-grid,
+      body.qms-responsive-layout .admin-kpi-row,
+      body.qms-responsive-layout .admin-traffic-metrics,
+      body.qms-responsive-layout .admin-staff-access-grid,
+      body.qms-responsive-layout .report-metric-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      }
+
+      body.qms-responsive-layout .letter-stage {
+        min-height: 440px !important;
+        transform: scale(.76) !important;
+        transform-origin: center !important;
+      }
+    }
+
+    @media (max-width: 767px) {
+      body.qms-responsive-layout .slide {
+        padding-inline: 0 !important;
+      }
+
+      body.qms-responsive-layout .slide[data-title="Intro"] {
+        min-height: 100dvh !important;
+        overflow: visible !important;
+      }
+
+      body.qms-responsive-layout .slide-frame {
+        width: min(94vw, 42rem) !important;
+        margin-inline: auto !important;
+      }
+
+      body.qms-responsive-layout .slide[data-title="Intro"] .intro-frame {
+        height: auto !important;
+        min-height: calc(100dvh - 10rem) !important;
+        max-height: none !important;
+        overflow: visible !important;
+      }
+
+      body.qms-responsive-layout .slide[data-title="Intro"] .intro-hero {
+        height: auto !important;
+        min-height: 0 !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        grid-template-rows: auto auto !important;
+      }
+
+      body.qms-responsive-layout h1,
+      body.qms-responsive-layout .slide[data-title="Intro"] h1 {
+        max-width: 90vw !important;
+        font-size: clamp(2.5rem, 13vw, 3.625rem) !important;
+        overflow-wrap: anywhere;
+      }
+
+      body.qms-responsive-layout button,
+      body.qms-responsive-layout .file-button,
+      body.qms-responsive-layout [role="button"],
+      body.qms-responsive-layout .nav-controls button,
+      body.qms-responsive-layout .start-button {
+        min-height: 44px !important;
+        touch-action: manipulation;
+      }
+
+      body.qms-responsive-layout .button-row,
+      body.qms-responsive-layout .hero-actions,
+      body.qms-responsive-layout .demo-pick-grid,
+      body.qms-responsive-layout .staff-flow-grid,
+      body.qms-responsive-layout .service-grid,
+      body.qms-responsive-layout .counter-options,
+      body.qms-responsive-layout .counter-list,
+      body.qms-responsive-layout .computer-counter-grid,
+      body.qms-responsive-layout .database-options-grid,
+      body.qms-responsive-layout .platform-choice-grid,
+      body.qms-responsive-layout .admin-feature-stack,
+      body.qms-responsive-layout .admin-kpi-row,
+      body.qms-responsive-layout .admin-traffic-metrics,
+      body.qms-responsive-layout .admin-staff-access-grid,
+      body.qms-responsive-layout .admin-report-summary,
+      body.qms-responsive-layout .report-metric-grid,
+      body.qms-responsive-layout .admin-permission-summary,
+      body.qms-responsive-layout .report-insight-row {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+
+      body.qms-responsive-layout .demo-pick-grid,
+      body.qms-responsive-layout .staff-flow-grid,
+      body.qms-responsive-layout .database-options-grid,
+      body.qms-responsive-layout .platform-choice-grid,
+      body.qms-responsive-layout .admin-feature-stack {
+        width: min(88vw, 34rem) !important;
+        margin-inline: auto !important;
+      }
+
+      body.qms-responsive-layout .intro-action-row {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        justify-items: center !important;
+      }
+
+      body.qms-responsive-layout .slide[data-title="Intro"] .start-button {
+        width: min(86vw, 18rem) !important;
+        min-height: 48px !important;
+        margin-inline: auto !important;
+      }
+
+      body.qms-responsive-layout .slide[data-title="Intro"] .sufi-team-orbs {
+        width: min(86vw, 20rem) !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        justify-items: center !important;
+        gap: 1.75rem !important;
+        margin-inline: auto !important;
+      }
+
+      /* Keep the same intro artwork, reorganized into one tap-friendly column. */
+      body.qms-responsive-layout .slide[data-title="Intro"] .letter-stage {
+        position: relative !important;
+        width: min(86vw, 22rem) !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        grid-template-rows: none !important;
+        gap: .625rem !important;
+        margin: 0 auto !important;
+        padding: 1rem !important;
+        overflow: visible !important;
+        transform: none !important;
+      }
+
+      body.qms-responsive-layout .slide[data-title="Intro"] .letter-stage::before,
+      body.qms-responsive-layout .slide[data-title="Intro"] .orbit-ring,
+      body.qms-responsive-layout .slide[data-title="Intro"] .start-letter {
+        display: none !important;
+      }
+
+      body.qms-responsive-layout .slide[data-title="Intro"] .start-anchor,
+      body.qms-responsive-layout .slide[data-title="Intro"] .float-label {
+        position: static !important;
+        inset: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 44px !important;
+        display: grid !important;
+        place-items: center !important;
+        margin: 0 !important;
+        padding: .75rem 1rem !important;
+        border-radius: .875rem !important;
+        transform: none !important;
+      }
+
+      body.qms-responsive-layout .slide[data-title="Intro"] .start-anchor {
+        font-size: clamp(1rem, 5vw, 1.35rem) !important;
+      }
+
+      body.qms-responsive-layout .slide[data-title="Intro"] .start-logo-tile {
+        position: static !important;
+        inset: auto !important;
+        width: 48px !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        margin: 0 auto !important;
+        padding: .25rem !important;
+        transform: none !important;
+      }
+
+      body.qms-responsive-layout .nav-controls {
+        width: calc(100vw - 14px) !important;
+      }
+    }
+
+    /* Preserve the blue receipt panel while restoring readable text contrast. */
+    #computerKioskPrinterPanel > h3 {
+      color: rgba(255,255,255,.98) !important;
+      text-shadow: 0 1px 12px rgba(10,16,105,.24) !important;
+    }
+
+    #computerKioskPrinterPanel > p {
+      color: rgba(255,255,255,.86) !important;
+      line-height: 1.5 !important;
+      text-shadow: 0 1px 10px rgba(10,16,105,.18);
+    }
+  </style>
 
 </head>
 <body>
@@ -18284,7 +18531,7 @@
 
   <div class="topbar">
     <div class="brand-mini">
-      <div class="mini-logo" data-fallback="STG"><img src="https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PIC%20LOGO/Main%20Logo%20%28Black%20Text%29.png" alt="STG logo" onerror="this.style.display='none'; this.parentElement.classList.add('show-fallback');" /></div>
+      <div class="mini-logo" data-fallback="STG"><img src="./PIC%20LOGO/Main%20Logo%20%28Black%20Text%29.png" alt="STG logo" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('show-fallback');" /></div>
       <span>SUFI TECNO GLOBAL SDN. BHD.</span>
     </div>
     <div class="page-indicator"><span id="currentPage">1</span><span>/</span><span id="totalPage">11</span></div>
@@ -18296,7 +18543,7 @@
         <div class="content hero-grid intro-hero">
           <div class="intro-copy">
             <div class="sufi-hero-brand">
-              <span class="sufi-hero-logo"><img src="https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PIC%20LOGO/Main%20Logo%20%28Black%20Text%29.png" alt="Sufi Tecno logo" onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback');" /></span>
+              <span class="sufi-hero-logo"><img src="./PIC%20LOGO/Main%20Logo%20%28Black%20Text%29.png" alt="Sufi Tecno logo" decoding="async" fetchpriority="high" onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback');" /></span>
               <span>Presented by <strong>SUFI TECNO GLOBAL SDN. BHD.</strong></span>
             </div>
             <h1>Queue Management <span class="gold">System</span></h1>
@@ -18305,15 +18552,15 @@
               <button class="accent start-button" onclick="go(1)">Start</button>
               <div class="sufi-team-orbs" aria-label="Sufi Tecno team portraits">
                 <div class="team-orb boss-orb" style="--delay:0s;" title="Boss">
-                  <img src="https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/team%20face/boss.png" alt="Boss portrait" onerror="this.style.display='none'; this.parentElement.classList.add('team-orb-fallback');" />
+                  <img src="./team%20face/optimized/boss-320.png" alt="Boss portrait" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('team-orb-fallback');" />
                   <span>Boss</span>
                 </div>
                 <div class="team-orb it-orb" style="--delay:.22s;" title="IT">
-                  <img src="https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/team%20face/it.png" alt="IT portrait" onerror="this.style.display='none'; this.parentElement.classList.add('team-orb-fallback');" />
+                  <img src="./team%20face/optimized/it-320.png" alt="IT portrait" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('team-orb-fallback');" />
                   <span>IT</span>
                 </div>
                 <div class="team-orb admin-orb" style="--delay:.44s;" title="Admin">
-                  <img src="https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/team%20face/admin.png" alt="Admin portrait" onerror="this.style.display='none'; this.parentElement.classList.add('team-orb-fallback');" />
+                  <img src="./team%20face/optimized/admin-320.png" alt="Admin portrait" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('team-orb-fallback');" />
                   <span>Admin</span>
                 </div>
               </div>
@@ -18329,7 +18576,7 @@
             <div class="start-letter f">F</div>
             <div class="start-letter i">I</div>
             <div class="start-logo-tile" aria-label="Floating company logo">
-              <img src="https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PIC%20LOGO/Main%20Logo%20%28Black%20Text%29.png" alt="STG logo" onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback');" />
+              <img src="./PIC%20LOGO/Main%20Logo%20%28Black%20Text%29.png" alt="STG logo" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback');" />
             </div>
             <div class="float-label kiosk">Kiosk</div>
             <div class="float-label staff">Staff</div>
@@ -18592,7 +18839,7 @@
                   <div class="tv-mode-panel active" id="tvVideoModePanel" role="tabpanel" aria-labelledby="tvVideoModeButton">
                     <div class="tv-video-layout">
                       <div class="tv-company-media" id="tvCompanyMedia">
-                        <video id="tvCompanyVideo" autoplay muted loop playsinline preload="auto" aria-label="Malaysia cinematic company showcase video"></video>
+                        <video id="tvCompanyVideo" autoplay muted loop playsinline preload="none" aria-label="Malaysia cinematic company showcase video"></video>
                         <div class="tv-promo-fallback" id="tvPromoFallback" aria-label="Animated company presentation">
                           <div class="tv-promo-grid" aria-hidden="true"></div>
                           <article class="tv-promo-story active">
@@ -19451,7 +19698,7 @@
 
             <div class="thanks-brand-lockup">
               <div class="thanks-company-logo">
-                <img src="https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PIC%20LOGO/Main%20Logo%20%28Black%20Text%29.png" alt="Sufi Tecno Global Sdn. Bhd. logo" />
+                <img src="./PIC%20LOGO/Main%20Logo%20%28Black%20Text%29.png" alt="Sufi Tecno Global Sdn. Bhd. logo" loading="lazy" decoding="async" />
               </div>
               <div class="thanks-brand-copy">
                 <span>Presentation complete</span>
@@ -19604,7 +19851,7 @@
     let tvPromoTimer = null;
     let tvVideoObjectUrl = "";
     const tvPrefixes = ["K", "L", "D", "M", "F"];
-    const tvVoiceBase = "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/Voice/";
+    const tvVoiceBase = "./Voice/";
     const tvAudioTokens = new Set(["K", "L", "D", "M", "F", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "KAUNTER1", "KAUNTER2", "KAUNTER3", "KAUNTER4"]);
     let selectedCounter = "Counter 1";
     let projectPhotoSources = [];
@@ -19812,28 +20059,28 @@
         title: "Customer Starts at the Kiosk",
         progress: "Customer kiosk",
         desc: "The customer chooses a service, receives a printed number and knows the next step without asking staff.",
-        src: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/kiosk.png",
+        src: "./PICPASTPROJECT/kiosk.png",
         fallbackSrc: placeholderProjectImage("01", "Kiosk")
       },
       {
         title: "Staff Receives the Queue",
         progress: "Staff panel",
         desc: "The counter team sees the number, selected service and waiting status inside one staff panel.",
-        src: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/staff.png",
+        src: "./PICPASTPROJECT/staff.png",
         fallbackSrc: placeholderProjectImage("02", "Staff")
       },
       {
         title: "TV Calls the Customer",
         progress: "TV display",
         desc: "The waiting-area TV shows the active number and counter clearly, with room for announcements or company video.",
-        src: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/tv.png",
+        src: "./PICPASTPROJECT/tv.png",
         fallbackSrc: placeholderProjectImage("03", "TV Display")
       },
       {
         title: "Transfer Without Reprinting",
         progress: "Payment settled",
         desc: "If payment is required, staff transfers the same customer to Kaunter Pembayaran and completes the journey cleanly.",
-        src: "https://raw.githubusercontent.com/SUFITECNO/SUFITECNOWEB/d98b4f33738be92d0593550681524fbc7781af99/PICPASTPROJECT/kaunterpembayaran.png",
+        src: "./PICPASTPROJECT/kaunterpembayaran.png",
         fallbackSrc: placeholderProjectImage("04", "Kaunter Pembayaran")
       }
     ];
@@ -20027,7 +20274,7 @@
         const isLast = index === projectSteps.length - 1;
         return `
           <article class="project-card ${isLast ? "is-last" : ""}" onclick="openProjectModal(${index})" role="button" tabindex="0" aria-label="Open ${escapeHtml(item.title)}">
-            <img src="${item.src}" alt="${escapeHtml(item.title)}" onerror="this.onerror=null; this.src='${item.fallbackSrc}';" />
+            <img src="${item.src}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='${item.fallbackSrc}';" />
             <div class="project-card-body">
               <div class="project-step-row">
                 <span class="project-step-no">${step}/${total}</span>
@@ -21150,7 +21397,7 @@
         const isLast = index === projectSteps.length - 1;
         return `
           <article class="project-card ${isLast ? 'is-last' : ''}" data-project-index="${index}" role="button" tabindex="0" aria-label="${escapeHtml(item.title)}">
-            <img src="${item.src}" alt="${escapeHtml(item.title)}" onerror="this.onerror=null; this.src='${item.fallbackSrc}';" />
+            <img src="${item.src}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='${item.fallbackSrc}';" />
             <div class="project-card-body">
               <div class="project-step-row">
                 <span class="project-step-no">${step}/${total}</span>
@@ -21553,7 +21800,7 @@
 
   <script id="qms-responsive-controller">
     (function () {
-      const responsiveBreakpoint = 1100;
+      const responsiveBreakpoint = 1279;
       let resizeTimer = null;
 
       function currentSlideIndex() {
@@ -21563,7 +21810,7 @@
 
       function applyResponsiveLayout(options = {}) {
         const compact = window.innerWidth <= responsiveBreakpoint;
-        const phone = window.innerWidth <= 640;
+        const phone = window.innerWidth < 768;
         const index = currentSlideIndex();
 
         document.body.classList.toggle("qms-responsive-layout", compact);
@@ -21655,13 +21902,12 @@
   <script id="qms-default-malaysia-tv-video">
     (function () {
       const defaultVideoSources = [
-        "./video/Ytmp3.gg_YouTube_MALAYSIA-Cinematic-Travel-Video-Stock-Fo_Media_8V7czbc0kxg_001_1080p%20%281%29.mp4",
-        "video/Ytmp3.gg_YouTube_MALAYSIA-Cinematic-Travel-Video-Stock-Fo_Media_8V7czbc0kxg_001_1080p%20%281%29.mp4",
-        "file:///C:/Users/Hp/Downloads/QMS%20PRESENTATION/video/Ytmp3.gg_YouTube_MALAYSIA-Cinematic-Travel-Video-Stock-Fo_Media_8V7czbc0kxg_001_1080p%20%281%29.mp4"
+        "./video/Ytmp3.gg_YouTube_MALAYSIA-Cinematic-Travel-Video-Stock-Fo_Media_8V7czbc0kxg_001_1080p%20%281%29.mp4"
       ];
 
       let userSelectedVideo = false;
       let activeAttempt = 0;
+      let defaultVideoLoaded = false;
 
       function showDefaultVideoStatus(message, isError) {
         const status = document.getElementById("tvCounterStatus");
@@ -21673,6 +21919,8 @@
       }
 
       function loadDefaultTvVideo() {
+        if (defaultVideoLoaded) return;
+        defaultVideoLoaded = true;
         const video = document.getElementById("tvCompanyVideo");
         const media = document.getElementById("tvCompanyMedia");
         const upload = document.getElementById("tvVideoUpload");
@@ -21730,10 +21978,33 @@
         trySource(0);
       }
 
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", loadDefaultTvVideo);
-      } else {
+      function loadWhenTvSlideIsVisible() {
+        const tvSlide = document.querySelector('.slide[data-title="TV Interface"]');
+        if (!tvSlide || !tvSlide.classList.contains("active")) return;
         loadDefaultTvVideo();
+      }
+
+      function watchForTvSlide() {
+        loadWhenTvSlideIsVisible();
+        const deck = document.getElementById("deck");
+        if (!deck || defaultVideoLoaded) return;
+
+        const observer = new MutationObserver(function () {
+          loadWhenTvSlideIsVisible();
+          if (defaultVideoLoaded) observer.disconnect();
+        });
+
+        observer.observe(deck, {
+          subtree: true,
+          attributes: true,
+          attributeFilter: ["class"]
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", watchForTvSlide, { once: true });
+      } else {
+        watchForTvSlide();
       }
     })();
   </script>
