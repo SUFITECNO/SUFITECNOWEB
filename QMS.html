@@ -21899,15 +21899,17 @@
   </script>
 
 
+  
   <script id="qms-default-malaysia-tv-video">
     (function () {
       const defaultVideoSources = [
-        "./video/Ytmp3.gg_YouTube_MALAYSIA-Cinematic-Travel-Video-Stock-Fo_Media_8V7czbc0kxg_001_1080p%20%281%29.mp4"
+        "./video/Ytmp3.gg_YouTube_MALAYSIA-Cinematic-Travel-Video-Stock-Fo_Media_8V7czbc0kxg_001_1080p%20%281%29.mp4",
+        "video/Ytmp3.gg_YouTube_MALAYSIA-Cinematic-Travel-Video-Stock-Fo_Media_8V7czbc0kxg_001_1080p%20%281%29.mp4",
+        "file:///C:/Users/Hp/Downloads/QMS%20PRESENTATION/video/Ytmp3.gg_YouTube_MALAYSIA-Cinematic-Travel-Video-Stock-Fo_Media_8V7czbc0kxg_001_1080p%20%281%29.mp4"
       ];
 
       let userSelectedVideo = false;
       let activeAttempt = 0;
-      let defaultVideoLoaded = false;
 
       function showDefaultVideoStatus(message, isError) {
         const status = document.getElementById("tvCounterStatus");
@@ -21919,8 +21921,6 @@
       }
 
       function loadDefaultTvVideo() {
-        if (defaultVideoLoaded) return;
-        defaultVideoLoaded = true;
         const video = document.getElementById("tvCompanyVideo");
         const media = document.getElementById("tvCompanyMedia");
         const upload = document.getElementById("tvVideoUpload");
@@ -21978,33 +21978,10 @@
         trySource(0);
       }
 
-      function loadWhenTvSlideIsVisible() {
-        const tvSlide = document.querySelector('.slide[data-title="TV Interface"]');
-        if (!tvSlide || !tvSlide.classList.contains("active")) return;
-        loadDefaultTvVideo();
-      }
-
-      function watchForTvSlide() {
-        loadWhenTvSlideIsVisible();
-        const deck = document.getElementById("deck");
-        if (!deck || defaultVideoLoaded) return;
-
-        const observer = new MutationObserver(function () {
-          loadWhenTvSlideIsVisible();
-          if (defaultVideoLoaded) observer.disconnect();
-        });
-
-        observer.observe(deck, {
-          subtree: true,
-          attributes: true,
-          attributeFilter: ["class"]
-        });
-      }
-
       if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", watchForTvSlide, { once: true });
+        document.addEventListener("DOMContentLoaded", loadDefaultTvVideo);
       } else {
-        watchForTvSlide();
+        loadDefaultTvVideo();
       }
     })();
   </script>
