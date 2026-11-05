@@ -1,761 +1,979 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sufi Tecno Global Sdn Bhd | Innovative IT Solutions</title>
-  <meta name="title" content="Sufi Tecno Global Sdn Bhd - IT Solutions & Services"/>
-  <meta name="description" content="Your One-Stop ICT & Office Solution Partner in Kuantan, Pahang."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://sufitechno.com/"/>
-  <meta property="og:title" content="Sufi Tecno Global Sdn. Bhd."/>
-  <meta property="og:description" content="Your One-Stop ICT & Office Solution Partner in Kuantan, Pahang."/>
-  <meta property="og:image" content="assets/images/logo/logo.png"/>
-  <link rel="shortcut icon" href="assets/images/logoclean.png" type="image/png"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sufi Tecno Global | Innovative IT Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        siteBg: '#0b1120',    
+                        cardBg: '#121827',    
+                        cardBorder: '#1f2937',
+                        cyanAccent: '#00e5ff' 
+                    }
+                }
+            }
+        }
+    </script>
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"/>
-  <!-- LineIcons -->
-  <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css"/>
-  <!-- Site styles -->
-  <link rel="stylesheet" href="style.css"/>
+    <!-- Custom CSS -->
+    <style>
+        html, body {
+            background-color: #0b1120;
+            color: #ffffff;
+            width: 100vw;
+            overflow-x: hidden; 
+        }
 
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0b1120; }
+        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #374151; }
+        
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: #00e5ff; width: 0%; z-index: 100; }
+
+        /* Navigasi */
+        .apple-glass-link { position: relative; display: flex; align-items: center; justify-content: center; z-index: 10; transition: color 0.3s ease; }
+        .apple-glass-link::before {
+            content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 9999px;
+            background: linear-gradient(180deg, rgba(0, 229, 255, 0.4) 0%, rgba(0, 229, 255, 0.1) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.4), 0 5px 15px rgba(0, 229, 255, 0.3); 
+            opacity: 0; transform: scale(0.6) translateY(5px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .apple-glass-link:hover::before, .apple-glass-active::before { opacity: 1; transform: scale(1) translateY(0); }
+        .apple-glass-link:hover, .apple-glass-active { color: #ffffff; text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+
+        /* Marquee / Infinite Slider */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        
+        .marquee-content {
+            display: flex;
+            width: max-content;
+            animation: scroll-left 20s linear infinite; 
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+        
+        .marquee-item {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+
+        .marquee-item img {
+        filter: grayscale(1) brightness(1.8);
+        opacity: 0.8;
+        }
+        .marquee-item img:hover {
+            filter: none;
+            opacity: 1;
+        }
+
+        /* Hover Card */
+        .neon-card-hover { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease; will-change: transform; }
+        .neon-card-hover:hover { box-shadow: inset 0 0 0 1px rgba(0, 229, 255, 0.5), 0 12px 30px rgba(0, 229, 255, 0.12); transform: translateY(-6px) scale(1.02); border-color: transparent; }
+        .neon-icon { transition: transform 0.35s ease, filter 0.35s ease; }
+        .neon-card-hover:hover .neon-icon { filter: drop-shadow(0 0 10px #00e5ff); transform: scale(1.15) translateY(-4px); }
+        .catalog-btn { transition: all 0.3s ease; }
+        .catalog-btn:hover { background-color: rgba(0, 229, 255, 0.1); border-color: #00e5ff; box-shadow: 0 0 15px rgba(0, 229, 255, 0.2); }
+        .catalog-btn:hover span { transform: translateX(4px); }
+        
+        #catalog-modal { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        #catalog-modal.active { opacity: 1; visibility: visible; pointer-events: auto; }
+        .catalog-content { transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        #catalog-modal.active .catalog-content { transform: scale(1); }
+        .catalog-container-area { width: 100%; position: relative; }
+        .catalog-track { display: flex; gap: 1rem; width: max-content; padding: 1rem 0; }
+        @media (min-width: 1024px) { .catalog-track { gap: 1.5rem; } }
+        @keyframes popInItem { 0% { opacity: 0; transform: translateY(40px) scale(0.9); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        .catalog-item-animate { animation: popInItem 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; opacity: 0; }
+
+        .flip-card { background-color: transparent; perspective: 1000px; min-height: 260px; width: 100%; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; cursor: pointer; }
+        .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; top: 0; left: 0; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 1.5rem; padding: 2rem; display: flex; flex-direction: column; }
+        .flip-card-front { background-color: #121827; border: 1px solid #1f2937; z-index: 2; }
+        .flip-card-back { background-color: #0b1120; border: 1px solid #00e5ff; transform: rotateY(180deg); box-shadow: 0 15px 30px rgba(0, 229, 255, 0.1); justify-content: center; }
+
+        .dark-map { filter: invert(90%) hue-rotate(180deg) brightness(1.1) contrast(1.1); transition: filter 0.5s ease; }
+        .map-container:hover .dark-map { filter: invert(90%) hue-rotate(180deg) brightness(1.2) contrast(1.2); }
+        .contact-row { transition: transform 0.3s ease; }
+        .contact-row:hover { transform: translateX(10px); }
+        .contact-row:hover .contact-icon-box { border-color: #00e5ff; box-shadow: 0 0 15px rgba(0, 229, 255, 0.2); background-color: rgba(0, 229, 255, 0.1); }
+        .contact-icon-box { transition: all 0.3s ease; }
+        input:focus, textarea:focus { border-color: #00e5ff !important; outline: none; box-shadow: 0 0 10px rgba(0,229,255,0.1); }
+
+        #project-modal { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.25s ease-out, visibility 0.25s ease-out; }
+        #project-modal.active { opacity: 1; visibility: visible; pointer-events: auto; }
+        #modal-content-project { transform: scale(0.95) translateY(15px); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        #project-modal.active #modal-content-project { transform: scale(1) translateY(0); }
+
+        /* Animasi Bouncing Arrow */
+        @keyframes bounce-down {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(3px); }
+        }
+        .animate-bounce-down {
+            animation: bounce-down 1.5s infinite;
+        }
+    </style>
 </head>
+<body class="antialiased selection:bg-cyanAccent selection:text-black">
 
-<body>
+    <div id="progress-bar"></div>
 
-  <!-- ====== Header ====== -->
-  <header class="ud-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="#home">
-              <img src="assets/images/logo/logoclean.png" alt="Sufi Tecno Logo"/>
+    <!-- Top Header -->
+    <div id="top-header" class="fixed top-0 left-0 w-full z-40 px-4 md:px-12 py-5 bg-gradient-to-b from-siteBg/90 to-transparent pointer-events-none will-change-transform max-w-[100vw]">
+        <div id="top-header-inner" class="max-w-[1400px] mx-auto flex justify-end items-center opacity-0 pointer-events-auto w-full">
+            <div class="flex items-center">
+                <a href="javascript:void(0)" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="px-5 py-2.5 rounded-full bg-transparent border border-cyanAccent/50 text-cyanAccent text-xs md:text-sm font-semibold hover:bg-cyanAccent hover:text-siteBg transition-all duration-300 shadow-[0_0_15px_rgba(0,229,255,0.1)] hover:shadow-[0_0_25px_rgba(0,229,255,0.4)] whitespace-nowrap">
+                    Let's Talk
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Navigation -->
+    <div class="fixed bottom-6 md:bottom-8 w-full flex justify-center z-50 px-4 pointer-events-none max-w-[100vw]">
+        <nav id="navbar" class="pointer-events-auto flex items-center gap-1 md:gap-2 p-1.5 md:p-2 bg-[#121827]/90 backdrop-blur-md border border-white/10 rounded-full shadow-[0_-10px_30px_rgba(0,0,0,0.6)] transition-all duration-300">
+            <a href="javascript:void(0)" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="apple-glass-link w-10 h-10 rounded-full group shrink-0">
+                <svg class="w-5 h-5 text-cyanAccent group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
             </a>
-            <button type="button" class="navbar-toggler" id="navToggler" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-              <span class="toggler-icon"></span>
-              <span class="toggler-icon"></span>
-              <span class="toggler-icon"></span>
+            <div class="hidden md:flex items-center gap-2 px-3 py-1 border-l border-r border-white/10">
+                <a href="javascript:void(0)" onclick="document.getElementById('solutions').scrollIntoView({behavior: 'smooth'})" class="apple-glass-link px-3 py-2 rounded-full text-[13px] lg:text-sm font-medium text-slate-300">Solutions</a>
+                <a href="javascript:void(0)" onclick="document.getElementById('why-choose-us').scrollIntoView({behavior: 'smooth'})" class="apple-glass-link px-3 py-2 rounded-full text-[13px] lg:text-sm font-medium text-slate-300">Why Us</a>
+                <a href="javascript:void(0)" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" class="apple-glass-link px-3 py-2 rounded-full text-[13px] lg:text-sm font-medium text-slate-300">Projects</a>
+                <a href="javascript:void(0)" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" class="apple-glass-link px-3 py-2 rounded-full text-[13px] lg:text-sm font-medium text-slate-300">About</a>
+                <a href="javascript:void(0)" onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'})" class="apple-glass-link px-3 py-2 rounded-full text-[13px] lg:text-sm font-medium text-slate-300">Team</a>
+            </div>
+            <a href="javascript:void(0)" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="apple-glass-link px-4 md:px-5 py-2 ml-1 md:ml-0 text-cyanAccent text-[11px] md:text-sm font-bold rounded-full border border-cyanAccent/30 whitespace-nowrap shrink-0">
+                Get Quote
+            </a>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <header id="hero-section" class="min-h-screen flex flex-col justify-center items-center text-center px-4 relative pt-20 pb-32 w-full max-w-[100vw] overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none opacity-20" style="background: radial-gradient(circle, #00e5ff 0%, transparent 70%);" id="hero-glow"></div>
+        
+            <!-- Logo -->
+            <div class="hero-desc opacity-0 w-full flex justify-center mb-6 md:mb-8">
+                <img src="assets/logo.png" alt="Sufi Tecno Logo"
+                       class="h-24 md:h-32 lg:h-40 w-auto object-contain drop-shadow-[0_0_45px_rgba(0,229,255,0.3)]">
+            </div>
+
+            <!-- Title -->
+            <h1 class="hero-title opacity-0 tracking-tight leading-none mb-10 md:mb-12" style="font-family: 'Sora', sans-serif;">
+                <span class="block text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#5b6bff] to-[#7cc0ff] bg-clip-text text-transparent">
+                    SUFI TECNO
+                </span>
+                <span class="block mt-4 text-sm md:text-xl font-medium uppercase tracking-[0.4em] text-slate-400">
+                    Global Sdn Bhd
+                </span>
+            </h1>
+
+            <!-- Certified -->
+            <div class="hero-logos opacity-0 w-full max-w-3xl mx-auto pt-6 border-t border-white/10 flex flex-col items-center">
+                <p class="text-[10px] md:text-xs uppercase tracking-widest mb-6 font-bold text-slate-400">CERTIFIED & TRUSTED BY</p>
+                
+                <!--Marquee Infinite Slider -->
+                <div class="marquee-container mb-12 w-full max-w-3xl">
+                    <div class="marquee-content gap-12 md:gap-24 px-6">
+                        <!-- SET 1 -->
+                        <div class="marquee-item"><img src="assets/SSMLogo.png" alt="SSM Logo" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/Bumiputera.png" alt="Bumiputera Status" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/LHDN.png" alt="LHDN" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/hpTrasparent.png" alt="HP Partner" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/ep.png" alt="ePerolehan" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/vit.png" alt="Vast It" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/pahang.png" alt="Pahang" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/ingram.png" alt="Ingram" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/vstecs.png" alt="Vstecs" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/lenovo.png" alt="Lenovo" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/canon.png" alt="Canon" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/kerajaan.png" alt="Kerajaan" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        
+                        <!-- SET 2 -->
+                        <div class="marquee-item"><img src="assets/SSMLogo.png" alt="SSM Logo" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/Bumiputera.png" alt="Bumiputera Status" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/LHDN.png" alt="LHDN" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/hpTrasparent.png" alt="HP Partner" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/ep.png" alt="ePerolehan" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/vit.png" alt="Vast It" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/pahang.png" alt="Pahang" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/ingram.png" alt="Ingram" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/vstecs.png" alt="Vstecs" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/lenovo.png" alt="Lenovo" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/canon.png" alt="Canon" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/kerajaan.png" alt="Kerajaan" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+
+                        <!-- SET 3 -->
+                        <div class="marquee-item"><img src="assets/SSMLogo.png" alt="SSM Logo" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/Bumiputera.png" alt="Bumiputera Status" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/LHDN.png" alt="LHDN" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/hpTrasparent.png" alt="HP Partner" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/ep.png" alt="ePerolehan" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/vit.png" alt="Vast It" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/pahang.png" alt="Pahang" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/ingram.png" alt="Ingram" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/vstecs.png" alt="Vstecs" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/lenovo.png" alt="Lenovo" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/canon.png" alt="Canon" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/kerajaan.png" alt="Kerajaan" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+
+                        <!-- SET 4 -->
+                        <div class="marquee-item"><img src="assets/SSMLogo.png" alt="SSM Logo" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/Bumiputera.png" alt="Bumiputera Status" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/LHDN.png" alt="LHDN" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/hpTrasparent.png" alt="HP Partner" class="max-h-8 md:max-h-12 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/ep.png" alt="ePerolehan" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/vit.png" alt="Vast It" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/pahang.png" alt="Pahang" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/ingram.png" alt="Ingram" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/vstecs.png" alt="Vstecs" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/lenovo.png" alt="Lenovo" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/canon.png" alt="Canon" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+                        <div class="marquee-item"><img src="assets/kerajaan.png" alt="Kerajaan" class="max-h-12 md:max-h-20 w-auto object-contain transition-all duration-300"></div>
+
+                    </div>
+                </div>
+
+                <div class="hero-btn opacity-0">
+                    <a href="javascript:void(0)" onclick="document.getElementById('solutions').scrollIntoView({behavior: 'smooth'})" class="px-8 md:px-10 py-3.5 bg-white text-siteBg text-sm md:text-base font-bold rounded-full hover:scale-105 transition-all duration-300 inline-flex items-center gap-2 shadow-[0_0_30px_rgba(255,255,255,0.15)]">
+                        Explore Solutions
+                        <svg class="w-4 h-4 md:w-5 md:h-5 animate-bounce-down" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Solutions -->
+    <section id="solutions" class="py-20 md:py-32 relative z-10 pt-24 max-w-[100vw]">
+        <div class="mb-10 md:mb-16 text-center px-4 md:px-6 w-full">
+            <h2 class="text-3xl md:text-5xl font-bold mb-3 md:mb-4 section-title opacity-0 text-white tracking-tight">Our Core Solutions</h2>
+            <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto section-title opacity-0">Swipe or move your mouse to explore our comprehensive technology stacks.</p>
+        </div>
+        
+        <div id="solutions-mouse-area" class="w-full relative overflow-x-auto lg:overflow-hidden hide-scrollbar snap-x snap-mandatory px-4 md:px-0 scroll-smooth">
+            <div id="solutions-track" class="flex gap-4 md:gap-8 lg:px-[10vw] w-max py-4 md:py-10 transition-transform duration-500 ease-out relative">
+                
+                <div class="solution-wrapper shrink-0 w-[85vw] max-w-[320px] lg:max-w-[350px] opacity-100 lg:opacity-0 snap-center">
+                    <div class="solution-card h-full flex flex-col bg-cardBg p-6 md:p-8 rounded-[2rem] border border-cardBorder cursor-default neon-card-hover mx-auto">
+                        <div class="mb-6 h-12 flex items-center justify-center"><svg class="w-10 h-10 text-cyanAccent neon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg></div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-white">ICT Equipment</h3>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8 flex-grow">Computers, servers, printers, data storage and productivity software for every business scale.</p>
+                        <button onclick="openCatalog('ict')" class="catalog-btn self-start inline-flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-full border border-cardBorder text-cyanAccent text-xs md:text-sm font-semibold bg-siteBg">
+                            View Catalog <span class="transition-transform duration-300 inline-block">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="solution-wrapper shrink-0 w-[85vw] max-w-[320px] lg:max-w-[350px] opacity-100 lg:opacity-0 snap-center">
+                    <div class="solution-card h-full flex flex-col bg-cardBg p-6 md:p-8 rounded-[2rem] border border-cardBorder cursor-default neon-card-hover mx-auto">
+                        <div class="mb-6 h-12 flex items-center justify-center"><svg class="w-10 h-10 text-cyanAccent neon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1v12zm0 7v-7"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11v6"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 17h8"></path></svg></div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-white">Network Setup</h3>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8 flex-grow">Structured cabling, network setup, firewall configuration, server deployment and complete IT infrastructure.</p>
+                        <button onclick="openCatalog('network')" class="catalog-btn self-start inline-flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-full border border-cardBorder text-cyanAccent text-xs md:text-sm font-semibold bg-siteBg">
+                            View Catalog <span class="transition-transform duration-300 inline-block">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="solution-wrapper shrink-0 w-[85vw] max-w-[320px] lg:max-w-[350px] opacity-100 lg:opacity-0 snap-center">
+                    <div class="solution-card h-full flex flex-col bg-cardBg p-6 md:p-8 rounded-[2rem] border border-cardBorder cursor-default neon-card-hover mx-auto">
+                        <div class="mb-6 h-12 flex items-center justify-center"><svg class="w-10 h-10 text-cyanAccent neon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke-width="1.5"></rect><line x1="3" y1="9" x2="21" y2="9" stroke-width="1.5"></line><line x1="9" y1="21" x2="9" y2="9" stroke-width="1.5"></line></svg></div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-white">Smart Office & CCTV</h3>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8 flex-grow">CCTV installation, access control, smart automation and integrated security monitoring solutions.</p>
+                        <button onclick="openCatalog('smart-office')" class="catalog-btn self-start inline-flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-full border border-cardBorder text-cyanAccent text-xs md:text-sm font-semibold bg-siteBg">
+                            View Catalog <span class="transition-transform duration-300 inline-block">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="solution-wrapper shrink-0 w-[85vw] max-w-[320px] lg:max-w-[350px] opacity-100 lg:opacity-0 snap-center">
+                    <div class="solution-card h-full flex flex-col bg-cardBg p-6 md:p-8 rounded-[2rem] border border-cardBorder cursor-default neon-card-hover mx-auto">
+                        <div class="mb-6 h-12 flex items-center justify-center"><svg class="w-10 h-10 text-cyanAccent neon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke-width="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1" stroke-width="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1" stroke-width="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1" stroke-width="1.5"></rect></svg></div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-white">Office Furniture</h3>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8 flex-grow">Ergonomic desks, chairs, storage solutions and essential office supplies for a productive workspace.</p>
+                        <button onclick="openCatalog('furniture')" class="catalog-btn self-start inline-flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-full border border-cardBorder text-cyanAccent text-xs md:text-sm font-semibold bg-siteBg">
+                            View Catalog <span class="transition-transform duration-300 inline-block">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="solution-wrapper shrink-0 w-[85vw] max-w-[320px] lg:max-w-[350px] opacity-100 lg:opacity-0 snap-center">
+                    <div class="solution-card h-full flex flex-col bg-cardBg p-6 md:p-8 rounded-[2rem] border border-cardBorder cursor-default neon-card-hover mx-auto">
+                        <div class="mb-6 h-12 flex items-center justify-center"><svg class="w-10 h-10 text-cyanAccent neon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-white">Cybersecurity</h3>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8 flex-grow">Antivirus, endpoint protection, firewall software and enterprise cybersecurity apps to safeguard data.</p>
+                        <button onclick="openCatalog('cybersecurity')" class="catalog-btn self-start inline-flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-full border border-cardBorder text-cyanAccent text-xs md:text-sm font-semibold bg-siteBg">
+                            View Catalog <span class="transition-transform duration-300 inline-block">→</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Catalog -->
+    <div id="catalog-modal" class="fixed inset-0 z-[9999] flex items-center justify-center bg-siteBg/95 w-full h-full">
+        <div class="absolute inset-0 cursor-pointer" onclick="closeCatalog()"></div>
+        
+        <div class="catalog-content relative w-[95%] max-w-6xl bg-siteBg border border-cyanAccent/30 rounded-3xl shadow-[0_0_50px_rgba(0,229,255,0.05)] overflow-hidden z-10 flex flex-col py-6 px-4 md:py-8 md:px-10">
+            <button onclick="closeCatalog()" class="absolute top-4 md:top-6 right-4 md:right-6 z-20 w-8 h-8 md:w-10 md:h-10 bg-cardBg hover:bg-cyanAccent hover:text-black text-slate-300 rounded-full flex items-center justify-center transition-colors border border-cardBorder">
+                <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-            <div class="navbar-collapse collapse" id="navMenu">
-              <ul id="nav" class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="ud-menu-scroll" href="#home">Home</a></li>
-                <li class="nav-item"><a class="ud-menu-scroll" href="#about">About</a></li>
-                <li class="nav-item"><a class="ud-menu-scroll" href="#team">Team</a></li>
-                <li class="nav-item"><a class="ud-menu-scroll" href="#contact">Contact</a></li>
-              </ul>
+            
+            <div class="mb-4 md:mb-8 px-2 md:px-0 pr-10 md:pr-12">
+                <h2 id="catalog-title" class="text-xl md:text-4xl font-bold text-white mb-1 md:mb-2 tracking-tight">Catalog Title</h2>
+                <p class="text-slate-400 text-xs md:text-sm">Swipe or move your mouse to scroll</p>
             </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- ====== Header End ====== -->
 
-  <!-- ====== Hero ====== -->
-  <section class="ud-hero" id="home">
-    <div class="hero-ring"></div>
-    <div class="hero-ring"></div>
-    <div class="hero-ring"></div>
-    <canvas class="stg-binary-cursor" aria-hidden="true" data-binary-cursor></canvas>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="ud-hero-content animate__animated animate__fadeInUp">
-            <h1 class="ud-hero-title">Sufi Tecno Global<br/>Sdn Bhd</h1>
-            <p class="ud-hero-desc">Your One-Stop ICT &amp; Office Solution Partner — delivering reliable technology for modern businesses.</p>
-            <ul class="ud-hero-buttons">
-              <li><a href="#contact" class="ud-main-btn ud-white-btn">Contact Us</a></li>
-              <li><a href="#about" class="ud-main-btn ud-link-btn">Learn More</a></li>
-            </ul>
-          </div>
-
-          <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
-            <img src="assets/images/hero/hero-image.svg" alt="hero-image" />
-            <img src="assets/images/hero/dotted-shape.svg" alt="shape" class="shape shape-1" />
-            <img src="assets/images/hero/dotted-shape.svg" alt="shape" class="shape shape-2" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ====== Hero End ====== -->
-
-  <!-- ====== Features / Core Solutions ====== -->
-  <section id="features" class="ud-features">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="ud-section-title text-center">
-            <h2>Our Core Solutions</h2>
-            <p>Comprehensive ICT, smart office and infrastructure solutions designed for businesses in Kuantan and across Malaysia.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="ud-features-track-wrapper">
-        <div class="ud-features-track" id="featuresTrack">
-
-          <!-- Card 1 -->
-          <div class="ud-feature-slide">
-            <div class="ud-single-feature">
-              <div class="ud-feature-icon"><i class="lni lni-gift"></i></div>
-              <div class="ud-feature-content">
-                <h3 class="ud-feature-title">ICT Equipment &amp; Solutions</h3>
-                <p class="ud-feature-desc">Computers, servers, printers, data storage and productivity software for every business scale.</p>
-                <button class="ud-catalog-btn"
-                  data-title="ICT Equipment &amp; Solutions"
-                  data-catalog='[{"src":"assets/images/Catalog/ICT%20EQUIPMENT%20%26%20SOLUTIONS/computers%20and%20laptops.jpg","name":"Computers and Laptops"},{"src":"assets/images/Catalog/ICT%20EQUIPMENT%20%26%20SOLUTIONS/Printers%2Cscanners%20and%20photocopiers.jpg","name":"Printers, Scanners and Photocopiers"},{"src":"assets/images/Catalog/ICT%20EQUIPMENT%20%26%20SOLUTIONS/Productivity%20and%20IT%20Security%20Software.png","name":"Productivity and IT Security Software"},{"src":"assets/images/Catalog/ICT%20EQUIPMENT%20%26%20SOLUTIONS/Servers%20and%20Data%20Storage.jpg","name":"Servers and Data Storage"}]'>
-                  View Catalog
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="ud-feature-slide">
-            <div class="ud-single-feature">
-              <div class="ud-feature-icon"><i class="lni lni-move"></i></div>
-              <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Network &amp; Infrastructure</h3>
-                <p class="ud-feature-desc">Structured cabling, network setup, firewall configuration, server deployment and complete IT infrastructure.</p>
-                <button class="ud-catalog-btn"
-                  data-title="Network &amp; Infrastructure"
-                  data-catalog='[{"src":"assets/images/Catalog/NETWORKING%20%26%20TELECOMMUNICATIONS/Access%20Points%20and%20Mesh%20Wifi%20Systems.jpg","name":"Access Points and Mesh WiFi Systems"},{"src":"assets/images/Catalog/NETWORKING%20%26%20TELECOMMUNICATIONS/PABX%20AND%20OFFICE%20INTERCOM%20SYSTEMS.jpg","name":"PABX and Office Intercom Systems"},{"src":"assets/images/Catalog/NETWORKING%20%26%20TELECOMMUNICATIONS/PBX%20AND%20IP%20Phone%20Systems.png","name":"PBX and IP Phone Systems"},{"src":"assets/images/Catalog/NETWORKING%20%26%20TELECOMMUNICATIONS/Routers%2CModems%20and%20Network%20Switches.jpg","name":"Routers, Modems and Network Switches"},{"src":"assets/images/Catalog/NETWORKING%20%26%20TELECOMMUNICATIONS/Video%20Conferencing%20Equipment.jpg","name":"Video Conferencing Equipment"}]'>
-                  View Catalog
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="ud-feature-slide">
-            <div class="ud-single-feature">
-              <div class="ud-feature-icon"><i class="lni lni-layout"></i></div>
-              <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Smart Office &amp; Security Systems</h3>
-                <p class="ud-feature-desc">CCTV installation, access control, smart automation and integrated security monitoring solutions.</p>
-                <button class="ud-catalog-btn"
-                  data-title="Smart Office &amp; Security Systems"
-                  data-catalog='[{"src":"assets/images/Catalog/OFFICE%20SECURITY%20AND%20ACCESS%20CONTROL/Automatic%20Doors%20and%20Smart%20Locks.jpg","name":"Automatic Doors and Smart Locks"},{"src":"assets/images/Catalog/OFFICE%20SECURITY%20AND%20ACCESS%20CONTROL/Access%20Control%20Systems.jpg","name":"Access Control Systems"},{"src":"assets/images/Catalog/OFFICE%20SECURITY%20AND%20ACCESS%20CONTROL/CCTV%20and%20Surveillance%20System.jpg","name":"CCTV and Surveillance System"},{"src":"assets/images/Catalog/OFFICE%20SECURITY%20AND%20ACCESS%20CONTROL/Security%20Alarms%20and%20Motion%20Sensors.jpg","name":"Security Alarms and Motion Sensors"}]'>
-                  View Catalog
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="ud-feature-slide">
-            <div class="ud-single-feature">
-              <div class="ud-feature-icon"><i class="lni lni-grid-alt"></i></div>
-              <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Office Furniture &amp; Essentials</h3>
-                <p class="ud-feature-desc">Ergonomic desks, chairs, storage solutions and essential office supplies for a productive workspace.</p>
-                <button class="ud-catalog-btn"
-                  data-title="Office Furniture &amp; Essentials"
-                  data-catalog='[{"src":"assets/images/Catalog/Office%20Furniture%20%26%20Essentials/Ventilation%20Systems%20%26%20Air%20Purifiers.jpg","name":"Ventilation Systems and Air Purifiers"},{"src":"assets/images/Catalog/Office%20Furniture%20%26%20Essentials/Ergonomic%20Desks%20and%20Chairs.jpg","name":"Ergonomic Desks and Chairs"},{"src":"assets/images/Catalog/Office%20Furniture%20%26%20Essentials/Cabinet%20and%20storage%20drawers.jpg","name":"Cabinet and Storage Drawers"}]'>
-                  View Catalog
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="ud-feature-slide">
-            <div class="ud-single-feature">
-              <div class="ud-feature-icon"><i class="lni lni-cogs"></i></div>
-              <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Office Automation Systems</h3>
-                <p class="ud-feature-desc">Smart automation for lighting, climate control, scheduling and workflow to boost office efficiency.</p>
-                <button class="ud-catalog-btn"
-                  data-title="Office Automation Systems"
-                  data-catalog='[{"src":"assets/images/Catalog/Office%20Automation%20Systems/Money%20Counting%20Machine.avif","name":"Money Counting Machine"},{"src":"assets/images/Catalog/Office%20Automation%20Systems/Fake%20Currency%20Detectors.jpg","name":"Fake Currency Detectors"},{"src":"assets/images/Catalog/Office%20Automation%20Systems/Digital%20signage%20and%20Information%20Displays.jpg","name":"Digital Signage and Information Displays"},{"src":"assets/images/Catalog/Office%20Automation%20Systems/E-Attendance%20and%20Digital%20Timesheet%20System.png","name":"E-Attendance and Digital Timesheet System"}]'>
-                  View Catalog
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="ud-feature-slide">
-            <div class="ud-single-feature">
-              <div class="ud-feature-icon"><i class="lni lni-shield"></i></div>
-              <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Cybersecurity Software &amp; Applications</h3>
-                <p class="ud-feature-desc">Antivirus, endpoint protection, firewall software and enterprise cybersecurity apps to safeguard your data.</p>
-                <button class="ud-catalog-btn"
-                  data-title="Cybersecurity Software &amp; Applications"
-                  data-catalog='[{"name":"Network Security Monitoring Systems","textOnly":true},{"name":"Intrusion Detection and Prevention Systems","textOnly":true},{"name":"Anti-Ransomware and Data Protection Software","textOnly":true},{"name":"Cybersecurity Awareness Platforms","textOnly":true},{"name":"IT Security Audit and Compliance Systems","textOnly":true}]'>
-                  View Catalog
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /track -->
-
-        <button class="ud-features-nav ud-features-nav-prev" id="featuresPrev" aria-label="Previous">&#8249;</button>
-        <button class="ud-features-nav ud-features-nav-next" id="featuresNext" aria-label="Next">&#8250;</button>
-      </div>
-    </div>
-  </section>
-  <!-- ====== Features End ====== -->
-
-  <!-- ====== About ====== -->
-  <section id="about" class="ud-about">
-    <div class="container">
-      <div class="ud-about-wrapper">
-        <div class="ud-about-content-wrapper">
-          <div class="ud-about-content">
-            <span class="tag">About Us</span>
-            <h2>About Sufi Tecno Global Sdn. Bhd.</h2>
-            <p>Sufi Tecno Global Sdn. Bhd. is an ICT and smart office solutions provider based in Kuantan, Pahang. We specialize in delivering reliable, scalable and cost-effective technology solutions tailored to modern business needs.</p>
-            <p>Our expertise covers ICT equipment supply, infrastructure deployment, network configuration, security systems and ongoing IT support. We are committed to helping organizations enhance productivity, security and operational efficiency.</p>
-            <a href="#contact" class="ud-main-btn ud-white-btn" style="margin-top:10px;">Contact Us</a>
-          </div>
-        </div>
-        <div class="ud-about-image">
-          <img src="assets/images/about/about-image.svg" alt="About Sufi Tecno"/>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ====== About End ====== -->
-
-  <!-- ====== Why Choose ====== -->
-  <section class="why-section">
-    <div class="container">
-      <h2>Why Choose Sufi Techno?</h2>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-card-icon"><i class="lni lni-certificate"></i></div>
-          <h4>Certified Professionals</h4>
-          <p>Experienced ICT engineers with proven industry expertise.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon"><i class="lni lni-bolt"></i></div>
-          <h4>Fast Response</h4>
-          <p>Quick technical support and on-site troubleshooting.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon"><i class="lni lni-layers"></i></div>
-          <h4>End-to-End Solutions</h4>
-          <p>From supply and deployment right through to maintenance.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon"><i class="lni lni-shield"></i></div>
-          <h4>Security Focused</h4>
-          <p>All solutions built on industry-standard security practices.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ====== Why Choose End ====== -->
-
-  <!-- ====== FAQ ====== -->
-  <section id="faq" class="ud-faq">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="ud-section-title text-center mx-auto">
-            <span>FAQ</span>
-            <h2>How Can We Help You?</h2>
-            <p>Find answers to common questions about our ICT solutions, office systems, security services and technology support.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="ud-single-faq">
-            <div class="accordion">
-              <button class="ud-faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#faq1">
-                <span class="icon flex-shrink-0"><i class="lni lni-chevron-down"></i></span>
-                <span>What services does SUFI TECNO GLOBAL provide?</span>
-              </button>
-              <div id="faq1" class="accordion-collapse collapse">
-                <div class="ud-faq-body">We provide complete ICT and office solutions including IT equipment supply, networking infrastructure, cybersecurity systems, office security, automation systems and ongoing technical support services.</div>
-              </div>
-            </div>
-          </div>
-          <div class="ud-single-faq">
-            <div class="accordion">
-              <button class="ud-faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
-                <span class="icon flex-shrink-0"><i class="lni lni-chevron-down"></i></span>
-                <span>Do you provide customized solutions?</span>
-              </button>
-              <div id="faq2" class="accordion-collapse collapse">
-                <div class="ud-faq-body">Yes. We assess your business requirements and design customized ICT, networking and security solutions to match your operational needs, budget and growth plans.</div>
-              </div>
-            </div>
-          </div>
-          <div class="ud-single-faq">
-            <div class="accordion">
-              <button class="ud-faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
-                <span class="icon flex-shrink-0"><i class="lni lni-chevron-down"></i></span>
-                <span>Do you offer installation and after-sales support?</span>
-              </button>
-              <div id="faq3" class="accordion-collapse collapse">
-                <div class="ud-faq-body">Absolutely. Our certified technical team handles installation, system configuration, maintenance and reliable after-sales support to ensure smooth and secure operations.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="ud-single-faq">
-            <div class="accordion">
-              <button class="ud-faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">
-                <span class="icon flex-shrink-0"><i class="lni lni-chevron-down"></i></span>
-                <span>Which industries do you serve?</span>
-              </button>
-              <div id="faq4" class="accordion-collapse collapse">
-                <div class="ud-faq-body">We serve SMEs, government agencies, educational institutions, retail businesses and corporate offices across various industries requiring integrated ICT solutions.</div>
-              </div>
-            </div>
-          </div>
-          <div class="ud-single-faq">
-            <div class="accordion">
-              <button class="ud-faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#faq5">
-                <span class="icon flex-shrink-0"><i class="lni lni-chevron-down"></i></span>
-                <span>Are your solutions security compliant?</span>
-              </button>
-              <div id="faq5" class="accordion-collapse collapse">
-                <div class="ud-faq-body">Yes. We prioritize cybersecurity, data protection and industry compliance standards. Our solutions are designed to align with best practices in information security.</div>
-              </div>
-            </div>
-          </div>
-          <div class="ud-single-faq">
-            <div class="accordion">
-              <button class="ud-faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#faq6">
-                <span class="icon flex-shrink-0"><i class="lni lni-chevron-down"></i></span>
-                <span>How do I request a quotation?</span>
-              </button>
-              <div id="faq6" class="accordion-collapse collapse">
-                <div class="ud-faq-body">Contact us via phone, email or the form on our website. Our team will respond promptly to arrange a consultation and provide a detailed quotation.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ====== FAQ End ====== -->
-
-  <!-- ====== Milestones ====== -->
-  <section id="testimonials" class="ud-testimonials">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="ud-section-title mx-auto text-center">
-            <span>Achievements</span>
-            <h2>Our Milestones</h2>
-            <p>Successfully delivered ICT infrastructure and office technology solutions to businesses in Kuantan and surrounding regions.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="ud-single-testimonial">
-            <div class="ud-testimonial-content">
-              <p>Established strategic partnerships with leading technology suppliers to ensure high-quality and reliable ICT products for clients.</p>
-            </div>
-            <div class="ud-testimonial-info">
-              <div class="ud-testimonial-image"><img src="assets/images/testimonials/author-01.png" alt=""/></div>
-              <div class="ud-testimonial-meta">
-                <h4>Technology Partnerships</h4>
-                <p>Trusted Vendors &amp; Suppliers</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="ud-single-testimonial">
-            <div class="ud-testimonial-content">
-              <p>Built a dedicated technical team capable of handling enterprise-level network, security and smart office deployments.</p>
-            </div>
-            <div class="ud-testimonial-info">
-              <div class="ud-testimonial-image"><img src="assets/images/testimonials/author-02.png" alt=""/></div>
-              <div class="ud-testimonial-meta">
-                <h4>Professional Team</h4>
-                <p>Certified &amp; Experienced Personnel</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="ud-single-testimonial">
-            <div class="ud-testimonial-content">
-              <p>Successfully delivered end-to-end networking and smart office security projects for SMEs and corporate clients across Pahang.</p>
-            </div>
-            <div class="ud-testimonial-info">
-              <div class="ud-testimonial-image"><img src="assets/images/testimonials/author-03.png" alt=""/></div>
-              <div class="ud-testimonial-meta">
-                <h4>End-to-End Projects</h4>
-                <p>Networking &amp; Security Solutions</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ====== Milestones End ====== -->
-
-  <!-- ====== Team ====== -->
-  <section id="team" class="ud-team">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="ud-section-title mx-auto text-center">
-            <span>Our Team</span>
-            <h2>Meet The Team</h2>
-            <p>Our leadership and technical team are committed to delivering professional, reliable and innovative ICT solutions.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-
-<!-- Member 1 -->
-<div class="col-xl-3 col-lg-3 col-md-5 col-sm-8 col-10 mb-4">
-  <div class="ud-single-team">
-    <div class="ud-team-card">
-      <div class="ud-team-photo-wrap">
-        <div class="ud-team-photo-bg">
-          <img src="assets/images/team/team-01.png" alt="" class="ud-team-photo-blur"/>
-        </div>
-        <div class="ud-team-photo-circle">
-          <img src="assets/images/team/team-01.png" alt="Muhamad Sufiyan Bin Mat Isa"/>
-        </div>
-        <div class="ud-team-glow"></div>
-      </div>
-
-      <div class="ud-team-body">
-        <h5>Muhamad Sufiyan Bin Mat Isa</h5>
-        <h6>Founder &amp; CEO</h6>
-        <div class="ud-team-divider"></div>
-
-        <ul class="ud-team-socials">
-          <li><a href="#" aria-label="LinkedIn"><i class="lni lni-linkedin-original"></i></a></li>
-          <li><a href="#" aria-label="Gmail"><i class="lni lni-envelope"></i></a></li>
-          <li><a href="#" aria-label="Instagram"><i class="lni lni-instagram"></i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Member 2 -->
-<div class="col-xl-3 col-lg-3 col-md-5 col-sm-8 col-10 mb-4">
-  <div class="ud-single-team">
-    <div class="ud-team-card">
-      <div class="ud-team-photo-wrap">
-        <div class="ud-team-photo-bg">
-          <img src="assets/images/team/team-02.jpeg" alt="" class="ud-team-photo-blur"/>
-        </div>
-        <div class="ud-team-photo-circle">
-          <img src="assets/images/team/team-02.jpeg" alt="Ainun Mardeya"/>
-        </div>
-        <div class="ud-team-glow"></div>
-      </div>
-
-      <div class="ud-team-body">
-        <h5>Ainun Mardeya</h5>
-        <h6>Admin &amp; Sales Executive</h6>
-        <div class="ud-team-divider"></div>
-
-        <ul class="ud-team-socials">
-          <li><a href="#" aria-label="LinkedIn"><i class="lni lni-linkedin-original"></i></a></li>
-          <li><a href="#" aria-label="Gmail"><i class="lni lni-envelope"></i></a></li>
-          <li><a href="#" aria-label="Instagram"><i class="lni lni-instagram"></i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Member 3 -->
-<div class="col-xl-3 col-lg-3 col-md-5 col-sm-8 col-10 mb-4">
-  <div class="ud-single-team">
-    <div class="ud-team-card">
-      <div class="ud-team-photo-wrap">
-        <div class="ud-team-photo-bg">
-          <img src="assets/images/team/team-03.jpeg" alt="" class="ud-team-photo-blur"/>
-        </div>
-        <div class="ud-team-photo-circle">
-          <img src="assets/images/team/team-03.jpeg" alt="IT Sales Executive"/>
-        </div>
-        <div class="ud-team-glow"></div>
-      </div>
-
-      <div class="ud-team-body">
-        <h5>&nbsp;</h5>
-         <h5>Ummi Syahirah</h5>
-        <h6>IT Sales Executive</h6>
-        <div class="ud-team-divider"></div>
-
-        <ul class="ud-team-socials">
-          <li><a href="#" aria-label="LinkedIn"><i class="lni lni-linkedin-original"></i></a></li>
-          <li><a href="#" aria-label="Gmail"><i class="lni lni-envelope"></i></a></li>
-          <li><a href="#" aria-label="Instagram"><i class="lni lni-instagram"></i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Member 4 -->
-<div class="col-xl-3 col-lg-3 col-md-5 col-sm-8 col-10 mb-4">
-  <div class="ud-single-team">
-    <div class="ud-team-card">
-      <div class="ud-team-photo-wrap">
-        <div class="ud-team-photo-bg">
-          <img src="assets/images/team/team-04.png" alt="" class="ud-team-photo-blur"/>
-        </div>
-        <div class="ud-team-photo-circle">
-          <img src="assets/images/team/team-04.png" alt="Mohammad Syahrul Arif Bin Azmi"/>
-        </div>
-        <div class="ud-team-glow"></div>
-      </div>
-
-      <div class="ud-team-body">
-        <h5>Mohammad Syahrul Arif Bin Azmi</h5>
-        <h6>Project &amp; Infrastructure</h6>
-        <div class="ud-team-divider"></div>
-
-        <ul class="ud-team-socials">
-          <li><a href="#" aria-label="LinkedIn"><i class="lni lni-linkedin-original"></i></a></li>
-          <li><a href="#" aria-label="Gmail"><i class="lni lni-envelope"></i></a></li>
-          <li><a href="#" aria-label="Instagram"><i class="lni lni-instagram"></i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-      </div>
-    </div>
-  </section>
-  <!-- ====== Team End ====== -->
-
-  <!-- ====== Contact ====== -->
-  <section id="contact" class="ud-contact">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-xl-8 col-lg-7">
-          <div class="ud-contact-content-wrapper">
-            <div class="ud-contact-title">
-              <span>Contact Us</span>
-              <h2>Let's Discuss Your ICT &amp; Office Solution Needs</h2>
-            </div>
-            <div class="ud-contact-info-wrapper">
-              <div class="ud-single-info">
-                <div class="ud-info-icon"><i class="lni lni-map-marker"></i></div>
-                <div class="ud-info-meta">
-                  <h5>Our Location</h5>
-                  <p>LOT 1-60 Tingkat 1 Kompleks Teruntum, Jalan Mahkota, 25200 Kuantan, Pahang</p>
+            <div id="catalog-container-area" class="catalog-container-area overflow-x-auto lg:overflow-hidden hide-scrollbar snap-x snap-mandatory">
+                <div class="catalog-track transition-transform duration-500 ease-out" id="catalog-track">
+                    <!-- Item katalog di-inject di sini -->
                 </div>
-              </div>
-              <div class="ud-single-info">
-                <div class="ud-info-icon"><i class="lni lni-envelope"></i></div>
-                <div class="ud-info-meta">
-                  <h5>How Can We Help?</h5>
-                  <p><a class="stg-email-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=admin@tecno.com.my" target="_blank" rel="noopener">admin@tecno.com.my</a></p>
-                </div>
-              </div>
-              <div class="ud-single-info">
-                <div class="ud-info-icon"><i class="lni lni-phone"></i></div>
-                <div class="ud-info-meta">
-                  <h5>Call Us</h5>
-                  <p>+60 1164234643</p>
-                </div>
-              </div>
-              <div class="stg-map-card">
-                <iframe title="Sufi Tecno Global location map" src="https://maps.google.com/maps?q=Kompleks%20Teruntum%20Kuantan&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div class="stg-map-overlay">
-                  <span>Visit Us</span>
-                  <strong>Kompleks Teruntum, Kuantan</strong>
-                  <a href="https://www.google.com/maps/search/?api=1&query=Kompleks%20Teruntum%20Kuantan" target="_blank" rel="noopener">Open in Google Maps</a>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-        <div class="col-xl-4 col-lg-5">
-          <div class="ud-contact-form-wrapper">
-            <h3 class="ud-contact-form-title">Send us a Message</h3>
-            <form class="ud-contact-form" data-google-sheet-endpoint="https://script.google.com/macros/s/AKfycbwIpQ3kre4eq5hk9RC18mR-04QL-Ss2zCvAFY0GQ64DhYUggJdQ_iT-ZfSmuliQys3djw/exec">
-              <div class="ud-form-group">
-                <label for="fullName">Full Name *</label>
-                <input type="text" id="fullName" name="fullName" placeholder="Your full name" required/>
-              </div>
-              <div class="ud-form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" placeholder="example@email.com" required/>
-              </div>
-              <div class="ud-form-group">
-                <label for="phone">Phone *</label>
-                <input type="tel" id="phone" name="phone" placeholder="+60 12 345 6789" required/>
-              </div>
-              <div class="ud-form-group">
-                <label for="message">Message *</label>
-                <textarea id="message" name="message" rows="4" placeholder="Tell us what you need" required></textarea>
-              </div>
-              <div class="ud-form-group mb-0">
-                <button type="submit" class="ud-main-btn ud-white-btn" style="width:100%;">Send Message</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
-  <!-- ====== Contact End ====== -->
 
-  <!-- ====== Form Status Popup ====== -->
-  <div class="stg-form-status" role="status" aria-live="polite" aria-hidden="true" data-form-status>
-    <div class="stg-form-status-card">
-      <div class="stg-form-status-loader" aria-hidden="true"></div>
-      <div class="stg-form-status-check" aria-hidden="true"><i class="lni lni-checkmark"></i></div>
-      <h3 data-form-status-title>Sending the message</h3>
-      <p data-form-status-message>Please wait while we save your enquiry.</p>
+    <!-- Why Choose Us -->
+    <section id="why-choose-us" class="py-24 px-6 max-w-[1400px] mx-auto relative z-10 pt-32 w-full max-w-[100vw]">
+        <div class="mb-10 md:mb-16 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 why-title opacity-0 text-white tracking-tight">Why Choose Sufi Techno?</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+            <div class="why-wrapper opacity-0">
+                <div class="why-card h-full flex flex-col items-center text-center bg-cardBg p-6 md:p-8 rounded-2xl border border-cardBorder cursor-default neon-card-hover">
+                    <div class="mb-6 h-12 flex items-center justify-center"><svg class="w-10 h-10 text-cyanAccent neon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3 text-white">Certified Professionals</h3>
+                    <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Experienced ICT engineers with proven industry expertise.</p>
+                </div>
+            </div>
+            <div class="why-wrapper opacity-0">
+                <div class="why-card h-full flex flex-col items-center text-center bg-cardBg p-6 md:p-8 rounded-2xl border border-cardBorder cursor-default neon-card-hover">
+                    <div class="mb-6 h-12 flex items-center justify-center"><svg class="w-10 h-10 text-cyanAccent neon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3 text-white">Fast Response</h3>
+                    <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Quick technical support and on-site troubleshooting.</p>
+                </div>
+            </div>
+            <div class="why-wrapper opacity-0">
+                <div class="why-card h-full flex flex-col items-center text-center bg-cardBg p-6 md:p-8 rounded-2xl border border-cardBorder cursor-default neon-card-hover">
+                    <div class="mb-6 h-12 flex items-center justify-center"><svg class="w-10 h-10 text-cyanAccent neon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3 text-white">End-to-End Solutions</h3>
+                    <p class="text-slate-400 text-xs md:text-sm leading-relaxed">From supply and deployment right through to maintenance.</p>
+                </div>
+            </div>
+            <div class="why-wrapper opacity-0">
+                <div class="why-card h-full flex flex-col items-center text-center bg-cardBg p-6 md:p-8 rounded-2xl border border-cardBorder cursor-default neon-card-hover">
+                    <div class="mb-6 h-12 flex items-center justify-center"><svg class="w-10 h-10 text-cyanAccent neon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-3 text-white">Security Focused</h3>
+                    <p class="text-slate-400 text-xs md:text-sm leading-relaxed">All solutions built on industry-standard security practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Projects -->
+    <section id="projects" class="py-24 px-6 max-w-[1050px] mx-auto relative z-10 w-full max-w-[100vw]">
+        <div class="mb-10 md:mb-14 text-center">
+            <div class="inline-block px-4 py-1 rounded-full border border-cyanAccent/30 text-cyanAccent text-[10px] md:text-xs font-bold tracking-widest uppercase mb-4 project-title opacity-0">Our Projects</div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-3 md:mb-4 project-title opacity-0 text-white tracking-tight">Inspiration for Your Next Project</h2>
+            <p class="text-slate-400 text-xs md:text-base max-w-xl mx-auto project-title opacity-0">Explore our successful deployments across government sectors, healthcare, and corporate facilities.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+            <div class="project-wrapper opacity-0">
+                <div class="project-card bg-cardBg rounded-2xl border border-cardBorder overflow-hidden group neon-card-hover cursor-pointer" onclick="openProjectModal('gov')">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="assets/GovernmentInfra.jpg" alt="Government IT Infrastructure" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-siteBg/30 group-hover:bg-transparent transition-colors duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-base md:text-lg font-bold text-white mb-2 group-hover:text-cyanAccent transition-colors">Government Portal Upgrades</h3>
+                        <p class="text-slate-400 text-[11px] md:text-xs leading-relaxed mb-4">Complete restructuring of information architecture and e-services module mapping for Jabatan Perhutanan Negeri Pahang (JPNP).</p>
+                        <span class="inline-flex items-center text-cyanAccent text-xs font-semibold">View Details <svg class="w-3.5 h-3.5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-wrapper opacity-0 md:mt-10">
+                <div class="project-card bg-cardBg rounded-2xl border border-cardBorder overflow-hidden group neon-card-hover cursor-pointer" onclick="openProjectModal('smart')">
+                    <div class="h-48 md:h-52 overflow-hidden relative">
+                        <img src="assets/SmartOffice.jpg" alt="Smart Office Setup" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-siteBg/30 group-hover:bg-transparent transition-colors duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-base md:text-lg font-bold text-white mb-2 group-hover:text-cyanAccent transition-colors">Enterprise Access Control</h3>
+                        <p class="text-slate-400 text-[11px] md:text-xs leading-relaxed mb-4">Hardware configuration and deployment of networked access controllers including ShineACS RFID and Hikvision systems.</p>
+                        <span class="inline-flex items-center text-cyanAccent text-xs font-semibold">View Details <svg class="w-3.5 h-3.5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-wrapper opacity-0">
+                <div class="project-card bg-cardBg rounded-2xl border border-cardBorder overflow-hidden group neon-card-hover cursor-pointer" onclick="openProjectModal('health')">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="assets/Healthcare.jpg" alt="Healthcare IT Support" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-siteBg/30 group-hover:bg-transparent transition-colors duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-base md:text-lg font-bold text-white mb-2 group-hover:text-cyanAccent transition-colors">Healthcare IT Procurement</h3>
+                        <p class="text-slate-400 text-[11px] md:text-xs leading-relaxed mb-4">Managed comprehensive government purchase orders and IT equipment supply for Jabatan Kesihatan Negeri Pahang.</p>
+                        <span class="inline-flex items-center text-cyanAccent text-xs font-semibold">View Details <svg class="w-3.5 h-3.5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-24 md:py-32 px-6 max-w-[1400px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center min-h-screen w-full max-w-[100vw]">
+        <div class="relative w-full h-[350px] md:h-[500px] flex items-center justify-center mt-10 lg:mt-0 order-2 lg:order-1">
+            <div class="absolute top-0 left-0 w-[80%] h-[280px] md:h-[400px] rounded-3xl overflow-hidden border border-[#1f2937] shadow-[0_20px_50px_rgba(0,0,0,0.5)] about-img-1 group hover:border-cyanAccent/50 transition-colors duration-500 z-10">
+                <img src="assets/about-1.jpg" alt="IT Operations" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="absolute bottom-0 right-0 w-[65%] h-[200px] md:h-[300px] rounded-3xl overflow-hidden border-8 border-siteBg shadow-[0_20px_50px_rgba(0,0,0,0.8)] about-img-2 group hover:border-cyanAccent/50 transition-colors duration-500 z-20">
+               <img src="assets/about-2.jpg" alt="Onsite Support" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="absolute -z-10 -bottom-10 -left-10 w-32 md:w-40 h-32 md:h-40 bg-cyanAccent/20 rounded-full blur-[80px] about-img-1"></div>
+        </div>
+
+        <div class="about-text-container order-1 lg:order-2">
+            <div class="inline-block px-5 py-1.5 rounded-full border border-cyanAccent/30 text-cyanAccent text-xs md:text-sm font-bold tracking-widest uppercase mb-6 md:mb-8 about-element opacity-0">About Us</div>
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 md:mb-8 about-element opacity-0 tracking-tight">Flexible IT Services for Growing Businesses</h2>
+            <p class="text-slate-300 text-sm md:text-xl leading-relaxed mb-4 md:mb-6 about-element opacity-0 font-light">At Sufi Tecno Global, our mission is to simplify IT management for businesses, allowing them to focus on their core goals without worrying about technology challenges.</p>
+            <p class="text-slate-300 text-sm md:text-xl leading-relaxed mb-8 md:mb-10 about-element opacity-0 font-light">By leveraging our expertise in IT outsourcing and onsite support, we help organizations achieve optimal performance, reduce operational costs, and stay competitive in a rapidly evolving market.</p>
+            <div class="about-element opacity-0 flex items-center gap-4">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyanAccent/10 flex items-center justify-center text-cyanAccent"><svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg></div>
+                <span class="text-white text-sm md:text-base font-semibold tracking-wide">Certified Company</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Board -->
+    <section id="team" class="py-24 px-6 max-w-[1050px] mx-auto relative z-10 w-full max-w-[100vw]">
+        <div class="mb-10 md:mb-14 text-center">
+            <div class="inline-block px-4 py-1 rounded-full border border-cyanAccent/30 text-cyanAccent text-xs font-bold tracking-widest uppercase mb-4 team-title opacity-0">Our People</div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 team-title opacity-0 text-white tracking-tight">Meet The Team</h2>
+            <p class="text-slate-400 text-sm md:text-base max-w-xl mx-auto team-title opacity-0">Our leadership and technical team are committed to delivering professional, reliable and innovative ICT solutions.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div class="team-wrapper opacity-0">
+                <div class="relative w-full h-[350px] md:h-[400px] rounded-[2rem] overflow-hidden group cursor-pointer shadow-2xl border border-white/5 mx-auto max-w-[320px] sm:max-w-none">
+                    <img src="assets/Sufiyan.jpg" alt="Muhamad Sufiyan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0b1120] via-[#0b1120]/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 translate-y-4 md:translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                        <h3 class="text-lg md:text-xl font-bold text-white mb-1 text-center">Muhamad Sufiyan</h3>
+                        <p class="text-cyanAccent text-[10px] md:text-xs font-bold tracking-widest uppercase mb-4 text-center">Founder & CEO</p>
+                        <div class="flex justify-center gap-3 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 md:delay-100">
+                            <a href="#" class="w-8 h-8 rounded-full border border-cyanAccent/50 flex items-center justify-center text-cyanAccent hover:bg-cyanAccent hover:text-[#0b1120] transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-wrapper opacity-0">
+                <div class="relative w-full h-[350px] md:h-[400px] rounded-[2rem] overflow-hidden group cursor-pointer shadow-2xl border border-white/5 mx-auto max-w-[320px] sm:max-w-none">
+                    <img src="assets/Ainun.jpg" alt="Ainun Mardeya" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0b1120] via-[#0b1120]/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 translate-y-4 md:translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                        <h3 class="text-lg md:text-xl font-bold text-white mb-1 text-center">Ainun Mardeya</h3>
+                        <p class="text-cyanAccent text-[10px] md:text-xs font-bold tracking-widest uppercase mb-4 text-center">Admin & Sales</p>
+                        <div class="flex justify-center gap-3 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 md:delay-100">
+                            <a href="#" class="w-8 h-8 rounded-full border border-cyanAccent/50 flex items-center justify-center text-cyanAccent hover:bg-cyanAccent hover:text-[#0b1120] transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-wrapper opacity-0">
+                <div class="relative w-full h-[350px] md:h-[400px] rounded-[2rem] overflow-hidden group cursor-pointer shadow-2xl border border-white/5 mx-auto max-w-[320px] sm:max-w-none">
+                    <img src="assets/Syahirah.jpg" alt="Ummi Syahirah" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0b1120] via-[#0b1120]/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 translate-y-4 md:translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                        <h3 class="text-lg md:text-xl font-bold text-white mb-1 text-center">Ummi Syahirah</h3>
+                        <p class="text-cyanAccent text-[10px] md:text-xs font-bold tracking-widest uppercase mb-4 text-center">IT Sales Executive</p>
+                        <div class="flex justify-center gap-3 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 md:delay-100">
+                            <a href="#" class="w-8 h-8 rounded-full border border-cyanAccent/50 flex items-center justify-center text-cyanAccent hover:bg-cyanAccent hover:text-[#0b1120] transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ FLIP CARD -->
+    <section id="faq" class="py-24 md:py-32 px-6 max-w-[1200px] mx-auto relative z-10 w-full max-w-[100vw]">
+        <div class="mb-10 md:mb-16 text-center">
+            <div class="inline-block px-5 py-1.5 rounded-full border border-cyanAccent/30 text-cyanAccent text-xs md:text-sm font-bold tracking-widest uppercase mb-4 md:mb-6 faq-element opacity-0">FAQ</div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6 faq-element opacity-0 text-white tracking-tight">How Can We Help You?</h2>
+            <p class="text-slate-400 text-sm md:text-lg max-w-2xl mx-auto faq-element opacity-0">Tap or hover on the cards below to reveal answers about our ICT solutions and services.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="faq-element opacity-0 flip-card col-span-1">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyanAccent/10 text-cyanAccent flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        </div>
+                        <h4 class="text-white font-bold text-base md:text-lg leading-snug">What services does SUFI TECNO provide?</h4>
+                        <p class="text-cyanAccent/60 text-[10px] md:text-xs font-semibold mt-auto pt-4 flex items-center gap-1">Tap to reveal <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg></p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4 class="text-cyanAccent font-bold text-sm mb-2 md:mb-3">Complete IT Solutions</h4>
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed">We provide complete ICT and office solutions including IT equipment supply, networking infrastructure, cybersecurity systems, and automation systems.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-element opacity-0 flip-card col-span-1 md:col-span-2 lg:col-span-2">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyanAccent/10 text-cyanAccent flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
+                        </div>
+                        <h4 class="text-white font-bold text-lg md:text-xl leading-snug">Do you provide customized solutions?</h4>
+                        <p class="text-cyanAccent/60 text-[10px] md:text-xs font-semibold mt-auto pt-4 flex items-center gap-1">Tap to reveal <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg></p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4 class="text-cyanAccent font-bold text-sm mb-2 md:mb-3">Customized For You</h4>
+                        <p class="text-slate-300 text-xs md:text-base leading-relaxed">Yes. We assess your business requirements and design customized ICT, networking and security solutions to match your operational needs, budget and growth plans seamlessly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-element opacity-0 flip-card col-span-1 md:col-span-2 lg:col-span-2">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyanAccent/10 text-cyanAccent flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h4 class="text-white font-bold text-lg md:text-xl leading-snug">Do you offer installation & after-sales support?</h4>
+                        <p class="text-cyanAccent/60 text-[10px] md:text-xs font-semibold mt-auto pt-4 flex items-center gap-1">Tap to reveal <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg></p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4 class="text-cyanAccent font-bold text-sm mb-2 md:mb-3">End-to-End Support</h4>
+                        <p class="text-slate-300 text-xs md:text-base leading-relaxed">Absolutely. Our certified technical team handles installation, system configuration, maintenance and reliable after-sales support to ensure smooth and secure operations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-element opacity-0 flip-card col-span-1">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyanAccent/10 text-cyanAccent flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <h4 class="text-white font-bold text-base md:text-lg leading-snug">Which industries do you serve?</h4>
+                        <p class="text-cyanAccent/60 text-[10px] md:text-xs font-semibold mt-auto pt-4 flex items-center gap-1">Tap to reveal <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg></p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4 class="text-cyanAccent font-bold text-sm mb-2 md:mb-3">All Sectors</h4>
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed">We serve SMEs, government agencies, educational institutions, retail businesses and corporate offices across various industries.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-element opacity-0 flip-card col-span-1">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyanAccent/10 text-cyanAccent flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h4 class="text-white font-bold text-base md:text-lg leading-snug">Are your solutions security compliant?</h4>
+                        <p class="text-cyanAccent/60 text-[10px] md:text-xs font-semibold mt-auto pt-4 flex items-center gap-1">Tap to reveal <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg></p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4 class="text-cyanAccent font-bold text-sm mb-2 md:mb-3">100% Compliant</h4>
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed">Yes. We prioritize cybersecurity and data protection. Our solutions align with best practices in information security.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-element opacity-0 flip-card col-span-1 lg:col-span-2">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cyanAccent/10 text-cyanAccent flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        </div>
+                        <h4 class="text-white font-bold text-lg md:text-xl leading-snug">How do I request a quotation?</h4>
+                        <p class="text-cyanAccent/60 text-[10px] md:text-xs font-semibold mt-auto pt-4 flex items-center gap-1">Tap to reveal <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg></p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4 class="text-cyanAccent font-bold text-sm mb-2 md:mb-3">Reach Out to Us</h4>
+                        <p class="text-slate-300 text-xs md:text-base leading-relaxed">Contact us via phone, email or the contact form below on our website. Our team will respond promptly to arrange a consultation and provide a detailed quotation for you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Contact Us -->
+    <section id="contact" class="py-20 px-6 max-w-[1400px] mx-auto relative z-10 w-full max-w-[100vw]">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+            
+            <div class="flex flex-col gap-6">
+                <div>
+                    <div class="inline-block px-5 py-1.5 rounded-full border border-cyanAccent/30 text-cyanAccent text-xs md:text-sm font-bold tracking-widest uppercase mb-6 contact-title opacity-0">Contact Us</div>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 contact-title opacity-0 tracking-tight">Let's Discuss Your ICT & Office Solution Needs</h2>
+                    
+                    <div class="flex flex-col gap-6">
+                        <div class="contact-row flex items-start gap-4 contact-item opacity-0">
+                            <div class="contact-icon-box w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-xl md:rounded-2xl border border-cardBorder bg-cardBg flex items-center justify-center">
+                                <svg class="w-4 h-4 md:w-5 md:h-5 text-cyanAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-xs md:text-sm tracking-widest uppercase mb-1">Our Location</h4>
+                                <p class="text-slate-400 text-xs md:text-sm leading-relaxed">LOT 1-60 Tingkat 1 Kompleks Teruntum, Jalan Mahkota, 25200 Kuantan, Pahang</p>
+                            </div>
+                        </div>
+                        <div class="contact-row flex items-start gap-4 contact-item opacity-0 cursor-pointer" onclick="copyToClipboard('admin@tecno.com.my', 'email-text')">
+                            <div class="contact-icon-box w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-xl md:rounded-2xl border border-cardBorder bg-cardBg flex items-center justify-center">
+                                <svg class="w-4 h-4 md:w-5 md:h-5 text-cyanAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-xs md:text-sm tracking-widest uppercase mb-1">How Can We Help?</h4>
+                                <p id="email-text" class="text-cyanAccent text-xs md:text-sm font-medium">admin@tecno.com.my</p>
+                            </div>
+                        </div>
+                        <div class="contact-row flex items-start gap-4 contact-item opacity-0 cursor-pointer" onclick="copyToClipboard('+601164234643', 'phone-text')">
+                            <div class="contact-icon-box w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-xl md:rounded-2xl border border-cardBorder bg-cardBg flex items-center justify-center">
+                                <svg class="w-4 h-4 md:w-5 md:h-5 text-cyanAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-xs md:text-sm tracking-widest uppercase mb-1">Call Us</h4>
+                                <p id="phone-text" class="text-cyanAccent text-xs md:text-sm font-medium">+60 1164234643</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container relative w-full h-[200px] md:h-[250px] rounded-2xl md:rounded-3xl overflow-hidden border border-cardBorder shadow-2xl opacity-0 transform scale-95 group mt-2">
+                    <iframe class="w-full h-full border-0 dark-map pointer-events-none group-hover:pointer-events-auto" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.893129849202!2d103.3283282!3d3.8058223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31c8b9d363b72c91%3A0x7d6a5c181516e454!2sKompleks%20Teruntum!5e0!3m2!1sen!2smy!4v1689000000000!5m2!1sen!2smy" 
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="absolute bottom-4 left-4 bg-siteBg border border-cardBorder px-4 py-2 rounded-xl shadow-lg z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <a href="https://maps.app.goo.gl/YourActualMapLink" target="_blank" class="inline-flex items-center text-cyanAccent text-xs font-semibold">
+                            Open in Maps <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web3Forms Integration -->
+            <div class="bg-cardBg border border-cardBorder p-6 lg:p-8 rounded-[2rem] md:rounded-3xl shadow-2xl contact-form-wrapper opacity-0 mx-auto w-full max-w-[400px] lg:max-w-none">
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-6">Send us a Message</h3>
+                <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4">
+                    <input type="hidden" name="access_key" value="7af35565-1324-45cd-8f9a-a3bf7b640e0d">
+                    <input type="hidden" name="subject" value="New Inquiry from Website Contact Form">
+                    <div>
+                        <label class="block text-slate-400 text-xs md:text-sm mb-1.5 font-medium">Full Name *</label>
+                        <input type="text" name="name" required placeholder="Your full name" class="w-full bg-siteBg border border-cardBorder rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-cyanAccent transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 text-xs md:text-sm mb-1.5 font-medium">Email *</label>
+                        <input type="email" name="email" required placeholder="example@email.com" class="w-full bg-siteBg border border-cardBorder rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-cyanAccent transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 text-xs md:text-sm mb-1.5 font-medium">Phone *</label>
+                        <input type="tel" name="phone" required placeholder="+60 12 345 6789" class="w-full bg-siteBg border border-cardBorder rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-cyanAccent transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 text-xs md:text-sm mb-1.5 font-medium">Message *</label>
+                        <textarea name="message" rows="3" required placeholder="Tell us what you need" class="w-full bg-siteBg border border-cardBorder rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-cyanAccent transition-colors resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-cyanAccent to-blue-500 text-[#0b1120] text-sm md:text-base font-bold py-3 md:py-3.5 rounded-xl hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all duration-300 mt-2">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+
+    <!--Project -->
+    <div id="project-modal" class="fixed inset-0 z-[9999] flex items-center justify-center bg-siteBg/95 p-4">
+        <div class="absolute inset-0 cursor-pointer" onclick="closeModal()"></div>
+        <div id="modal-content-project" class="relative w-full max-w-2xl max-h-[85vh] flex flex-col bg-cardBg border border-cardBorder rounded-2xl shadow-2xl overflow-hidden z-10">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-20 w-8 h-8 md:w-9 md:h-9 bg-siteBg/80 hover:bg-cyanAccent hover:text-siteBg text-white rounded-full flex items-center justify-center transition-colors border border-white/10">
+                <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="w-full h-48 md:h-64 shrink-0 relative bg-siteBg">
+                <img id="modal-image" src="" alt="Project Image" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-cardBg via-transparent to-transparent"></div>
+            </div>
+            <div class="p-5 md:p-8 overflow-y-auto modal-scroll-area">
+                <div class="inline-block px-3 py-1 rounded-full bg-cyanAccent/10 text-cyanAccent text-[10px] md:text-xs font-bold tracking-widest uppercase mb-3">Project Case Study</div>
+                <h2 id="modal-title" class="text-xl md:text-3xl font-bold text-white mb-3 md:mb-4 tracking-tight">Project Title</h2>
+                <div class="w-10 h-1 bg-cyanAccent mb-4 md:mb-5 rounded-full"></div>
+                <p id="modal-desc" class="text-slate-300 text-xs md:text-base leading-relaxed font-light whitespace-pre-line">Project description goes here...</p>
+                <div class="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/5 flex justify-end">
+                    <button onclick="closeModal()" class="px-5 md:px-6 py-2 md:py-2.5 bg-white text-siteBg text-xs md:text-sm font-bold rounded-full hover:bg-cyanAccent transition-colors duration-200">Close Details</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- ====== Catalog Modal ====== -->
-  <div class="ud-catalog-modal" id="catalogModal" role="dialog" aria-modal="true" aria-labelledby="catalogModalTitle">
-    <div class="ud-catalog-modal-inner">
-      <button class="ud-catalog-modal-close" id="catalogModalClose" aria-label="Close">&times;</button>
-      <h3 id="catalogModalTitle"></h3>
-      <p class="catalog-modal-subtitle">Swipe or drag to browse our catalog</p>
-      <div class="ud-catalog-image-track-wrapper" id="catalogTrackWrapper">
-        <div class="ud-catalog-image-track" id="catalogImageTrack"></div>
-        <button class="ud-catalog-img-nav ud-catalog-img-prev" id="catalogImgPrev" aria-label="Previous">&#8249;</button>
-        <button class="ud-catalog-img-nav ud-catalog-img-next" id="catalogImgNext" aria-label="Next">&#8250;</button>
-      </div>
-      <div class="catalog-dots" id="catalogDots"></div>
-      <p class="ud-catalog-empty" id="catalogEmpty">No catalog images available yet. Check back soon!</p>
+    <!-- Footer -->
+    <div class="h-auto border-t border-white/5 mt-10 pt-10 pb-32 flex flex-col items-center justify-center text-slate-500 text-xs md:text-sm relative z-0 w-full">
+        © 2026 Sufi Tecno Global Sdn. Bhd. All Rights Reserved.
     </div>
-  </div>
 
-  <!-- ====== Footer ====== -->
-<footer class="ud-footer">
-  <div class="ud-footer-widgets">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-          <div class="ud-widget">
-            <a href="#home" class="ud-footer-logo">
-              <img src="assets/images/logo/logo.png" alt="Sufi Tecno Logo"/>
-            </a>
-            <p class="ud-widget-desc">Your trusted ICT &amp; smart office solutions partner in Malaysia.</p>
+    <!-- GSAP Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Script Logic -->
+    <script>
+        const catalogData = {
+            'ict': {
+                title: "ICT Equipment",
+                items: [
+                    { img: "assets/Workstation.jpg", name: "High-Performance Workstations" },
+                    { img: "assets/Server.jpg", name: "Enterprise Servers" },
+                    { img: "assets/Printer.jpg", name: "Office Printers & Copiers" },
+                    { img: "assets/Nas.jpg", name: "NAS & Data Storage" }
+                ]
+            },
+            'network': {
+                title: "Network Setup",
+                items: [
+                    { img: "assets/CoreSwitch.jpg", name: "Managed Core Switches" },
+                    { img: "assets/routers.jpg", name: "Enterprise Routers" },
+                    { img: "assets/AccessPoint.jpg", name: "WiFi Access Points" },
+                ]
+            },
+            'smart-office': {
+                title: "Smart Office & Security",
+                items: [
+                    { img: "assets/AutomaticDoorLock.jpg", name: "Automatic Doors & Smart Locks" },
+                    { img: "assets/AccessControl.jpg", name: "Biometric Access Control" },
+                    { img: "assets/CCTV.jpg", name: "CCTV Systems" },
+                ]
+            },
+            'furniture': {
+                title: "Office Furniture & Essentials",
+                items: [
+                    { img: "assets/ErgonomicChair.jpg", name: "Ergonomic Office Chairs" },
+                    { img: "assets/Desk.jpg", name: "Office Desks" },
+                    { img: "assets/Cabinet.jpg", name: "Storage Solutions" }
+                ]
+            },
+            'cybersecurity': {
+                title: "Cybersecurity & Applications",
+                items: [
+                    { img: "assets/Firewall.jpg", name: "Enterprise Firewalls" },
+                    { img: "assets/Antivirus.jpg", name: "Endpoint Protection Apps" },
+                    { img: "assets/Cloud.jpg", name: "Secure Cloud Backup" },
+                ]
+            }
+        };
 
-            <ul class="ud-widget-socials">
-              <li><a href="#" aria-label="LinkedIn"><i class="lni lni-linkedin-original"></i></a></li>
-              
-              <!-- FIXED ICONS BELOW -->
-              <li><a href="#" aria-label="Instagram"><i class="lni lni-instagram"></i></a></li>
-              <li><a href="#" aria-label="Facebook"><i class="lni lni-facebook"></i></a></li>
+        const projectData = {
+            'gov': {
+                title: 'JPNP Official Portal Upgrade',
+                img: 'assets/GovernmentInfra.jpg',
+                desc: 'Spearheaded the digital transformation for Jabatan Perhutanan Negeri Pahang (JPNP) by redesigning their official government portal.\n\nKey Deliverables:\n• Complete restructuring of portal information architecture\n• Seamless e-services module mapping and integration\n• Enhanced public accessibility and government service delivery'
+            },
+            'smart': {
+                title: 'Enterprise Door Access Control',
+                img: 'assets/SmartOffice.jpg',
+                desc: 'Deployed high-security smart office access solutions tailored for corporate and enterprise environments.\n\nKey Deliverables:\n• Configuration of Hikvision networked access controllers\n• Installation of ShineACS standalone RFID keypads\n• Integrated security monitoring and restricted zone management'
+            },
+            'health': {
+                title: 'Healthcare IT Procurement',
+                img: 'assets/Healthcare.jpg',
+                desc: 'Facilitated major IT equipment supply operations for Jabatan Kesihatan Negeri Pahang to ensure uninterrupted regional health administration.\n\nKey Deliverables:\n• Managed a comprehensive 14-item government purchase order register\n• Fulfilled critical equipment supply totaling RM 111,888.90\n• Guaranteed hardware compliance with government health sector standards'
+            }
+        };
 
-              <li><a href="#" aria-label="TikTok">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="display:block;">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.67a8.17 8.17 0 0 0 4.78 1.52V6.73a4.85 4.85 0 0 1-1.01-.04z"/>
-                </svg>
-              </a></li>
-            </ul>
-          </div>
-        </div>
+        const projectModal = document.getElementById('project-modal');
+        function openProjectModal(projectId) {
+            const data = projectData[projectId];
+            if (!data) return;
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-image').src = data.img;
+            document.getElementById('modal-desc').textContent = data.desc;
+            projectModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-        <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 mb-5">
-          <div class="ud-widget">
-            <h5 class="ud-widget-title">Company</h5>
-            <ul class="ud-widget-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#features">Solutions</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#testimonials">Milestones</a></li>
-            </ul>
-          </div>
-        </div>
+        function closeModal() {
+            projectModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-        <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 mb-5">
-          <div class="ud-widget">
-            <h5 class="ud-widget-title">Legal</h5>
-            <ul class="ud-widget-links">
-              <li><a href="javascript:void(0)">Privacy Policy</a></li>
-              <li><a href="javascript:void(0)">Terms of Service</a></li>
-              <li><a href="javascript:void(0)">Support Policy</a></li>
-              <li><a href="javascript:void(0)">Refund Policy</a></li>
-            </ul>
-          </div>
-        </div>
+        const catalogModal = document.getElementById('catalog-modal');
+        const catalogTitle = document.getElementById('catalog-title');
+        const catalogTrack = document.getElementById('catalog-track');
 
-        <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 mb-5">
-          <div class="ud-widget">
-            <h5 class="ud-widget-title">Core Services</h5>
-            <ul class="ud-widget-links">
-              <li><a href="#features">ICT Equipment</a></li>
-              <li><a href="#features">Networking</a></li>
-              <li><a href="#features">Security Systems</a></li>
-              <li><a href="#features">IT Maintenance</a></li>
-            </ul>
-          </div>
-        </div>
+        function openCatalog(categoryKey) {
+            const data = catalogData[categoryKey];
+            if (!data) return;
 
-      </div>
-    </div>
-  </div>
+            catalogTitle.textContent = data.title;
+            gsap.set(catalogTrack, { x: 0 }); // Reset scroll GSAP
 
-  <div class="ud-footer-bottom">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8">
-          <ul class="ud-footer-bottom-left">
-            <li><a href="javascript:void(0)">Privacy Policy</a></li>
-            <li><a href="javascript:void(0)">Support Policy</a></li>
-            <li><a href="javascript:void(0)">Terms of Service</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <p class="ud-footer-bottom-right">© 2026 Sufi Tecno Global Sdn. Bhd. All Rights Reserved.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+            catalogTrack.innerHTML = data.items.map((item, index) => `
+                <div class="catalog-item snap-center w-[85vw] sm:w-[320px] lg:w-[350px] flex-shrink-0">
+                    <div class="catalog-item-animate bg-cardBg border border-cardBorder rounded-2xl overflow-hidden h-full flex flex-col hover:border-cyanAccent/50 transition-colors" style="animation-delay: ${index * 0.15}s;">
+                        <div class="h-40 md:h-56 bg-siteBg relative p-4 flex items-center justify-center">
+                            <img src="${item.img}" alt="${item.name}" class="max-w-full max-h-full object-contain drop-shadow-lg rounded-xl">
+                        </div>
+                        <div class="p-3 md:p-4 bg-siteBg border-t border-cardBorder text-center flex-grow flex items-center justify-center">
+                            <h4 class="text-white font-bold text-xs md:text-base leading-tight">${item.name}</h4>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
 
-  <!-- ====== Back To Top ====== -->
-  <a href="javascript:void(0)" class="back-to-top" id="backToTop"><i class="lni lni-chevron-up"></i></a>
+            catalogModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-  <!-- ====== Chat Widget ====== -->
-  <div class="stg-chat-widget" data-chat-widget>
-    <button type="button" class="stg-chat-trigger" aria-label="Open chat" aria-expanded="false" data-chat-trigger>
-      <i class="lni lni-comments"></i>
-      <span>Chat</span>
-    </button>
-    <div id="stg-chat-panel" class="stg-chat-panel" role="dialog" aria-modal="false" data-chat-panel>
-      <button type="button" class="stg-chat-close" aria-label="Close chat" data-chat-close><i class="lni lni-close"></i></button>
-      <span class="stg-chat-kicker">Sufi Tecno Support</span>
-      <h3>Start a Conversation</h3>
-      <p>The team typically replies in a few minutes</p>
-      <a class="stg-whatsapp-option" href="https://wa.me/601164234643?text=Hi%20Sufi%20Tecno%2C%20I%20would%20like%20to%20ask%20about%20your%20ICT%20solutions." target="_blank" rel="noopener">
-        <i class="lni lni-whatsapp"></i>
-        <span>Continue on WhatsApp</span>
-      </a>
-    </div>
-  </div>
+        function closeCatalog() {
+            catalogModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js"></script>
-  <script src="script.js"></script>
+        const catalogContainerArea = document.getElementById('catalog-container-area');
+        catalogContainerArea.addEventListener('mousemove', (e) => {
+            if (window.innerWidth >= 1024 && catalogModal.classList.contains('active')) {
+                const rect = catalogContainerArea.getBoundingClientRect();
+                const percentage = (e.clientX - rect.left) / rect.width;
+                const maxScroll = catalogTrack.scrollWidth - catalogContainerArea.clientWidth;
+                if (maxScroll > 0) {
+                    gsap.to(catalogTrack, { x: -(maxScroll * percentage), duration: 1, ease: "power2.out" });
+                }
+            }
+        });
 
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 1024) {
+                gsap.set(document.getElementById('solutions-track'), { clearProps: "x" });
+                gsap.set(catalogTrack, { clearProps: "x" });
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (catalogModal.classList.contains('active')) closeCatalog();
+                if (projectModal.classList.contains('active')) closeModal();
+            }
+        });
+
+        function copyToClipboard(text, elementId) {
+            navigator.clipboard.writeText(text).then(() => {
+                const el = document.getElementById(elementId);
+                const originalText = el.innerText;
+                el.innerText = "Copied!";
+                el.classList.add("text-white");
+                setTimeout(() => {
+                    el.innerText = originalText;
+                    el.classList.remove("text-white");
+                }, 2000);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.to("#progress-bar", { width: "100%", ease: "none", scrollTrigger: { trigger: "body", start: "top top", end: "bottom bottom", scrub: 0.5 } });
+            gsap.to("#top-header", { yPercent: -120, opacity: 0, ease: "none", scrollTrigger: { trigger: "#hero-section", start: "top top", end: "250px top", scrub: 0.3 } });
+            gsap.to("#hero-content-wrapper", { y: -150, opacity: 0, ease: "none", scrollTrigger: { trigger: "#hero-section", start: "top top", end: "bottom top", scrub: 1 } });
+
+            const heroTl = gsap.timeline();
+            heroTl.fromTo("#top-header-inner", { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" })
+                  .fromTo(".hero-title", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" }, "-=0.7")
+                  .fromTo(".hero-desc", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, "-=0.8")
+                  .fromTo(".hero-logos", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, "-=0.5")
+                  .fromTo(".hero-btn", { y: 20, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, "-=0.4");
+
+            gsap.fromTo(".section-title", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out", scrollTrigger: { trigger: "#solutions", start: "top 85%", toggleActions: "play reverse play reverse" } });
+
+            gsap.fromTo(".solution-wrapper", { y: 60, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 1, stagger: 0.1, ease: "power3.out", scrollTrigger: { trigger: "#solutions-track", start: "top 80%", toggleActions: "play reverse play reverse" } });
+
+            const solutionsMouseArea = document.getElementById('solutions-mouse-area');
+            const solutionsTrack = document.getElementById('solutions-track');
+            solutionsMouseArea.addEventListener('mousemove', (e) => {
+                if (window.innerWidth >= 1024) {
+                    const rect = solutionsMouseArea.getBoundingClientRect();
+                    const percentage = (e.clientX - rect.left) / rect.width;
+                    const maxScroll = solutionsTrack.scrollWidth - solutionsMouseArea.clientWidth;
+                    gsap.to(solutionsTrack, { x: -(maxScroll * percentage), duration: 1, ease: "power2.out" });
+                }
+            });
+
+            gsap.fromTo(".why-title", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", scrollTrigger: { trigger: "#why-choose-us", start: "top 85%", toggleActions: "play reverse play reverse" } });
+            gsap.fromTo(".why-wrapper", { y: 60, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 1, stagger: 0.1, ease: "power3.out", scrollTrigger: { trigger: "#why-choose-us .grid", start: "top 80%", toggleActions: "play reverse play reverse" } });
+
+            gsap.fromTo(".project-title", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", scrollTrigger: { trigger: "#projects", start: "top 85%", toggleActions: "play reverse play reverse" } });
+            gsap.fromTo(".project-wrapper", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: "#projects .grid", start: "top 80%", toggleActions: "play reverse play reverse" } });
+            
+            gsap.fromTo(".about-element", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: "#about", start: "top 80%", toggleActions: "play reverse play reverse" } });
+            gsap.fromTo(".about-img-1", { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1.2, ease: "power2.out", scrollTrigger: { trigger: "#about", start: "top 80%", toggleActions: "play reverse play reverse" } });
+            gsap.fromTo(".about-img-2", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: "power2.out", delay: 0.3, scrollTrigger: { trigger: "#about", start: "top 80%", toggleActions: "play reverse play reverse" } });
+
+            gsap.fromTo(".team-title", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", scrollTrigger: { trigger: "#team", start: "top 85%", toggleActions: "play reverse play reverse" } });
+            gsap.fromTo(".team-wrapper", { y: 100, opacity: 0, rotationX: -45 }, { y: 0, opacity: 1, rotationX: 0, duration: 1.2, stagger: 0.2, ease: "expo.out", scrollTrigger: { trigger: "#team .grid", start: "top 80%", toggleActions: "play reverse play reverse" }, clearProps: "transform" });
+
+            // Animate Bento FAQ
+            gsap.fromTo(".faq-element", { y: 50, opacity: 0, rotationX: -10 }, { y: 0, opacity: 1, rotationX: 0, duration: 0.8, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: "#faq", start: "top 80%", toggleActions: "play reverse play reverse" } });
+
+            gsap.fromTo(".contact-title", { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out", scrollTrigger: { trigger: "#contact", start: "top 80%", toggleActions: "play none none reverse" } });
+            gsap.fromTo(".contact-item", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: "power2.out", scrollTrigger: { trigger: "#contact", start: "top 70%", toggleActions: "play none none reverse" } });
+            gsap.to(".map-container", { scale: 1, opacity: 1, duration: 1, ease: "power3.out", scrollTrigger: { trigger: "#contact", start: "top 75%", toggleActions: "play none none reverse" } });
+            
+            gsap.fromTo(".contact-form-wrapper", 
+                { y: 50, opacity: 0 }, 
+                { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: "#contact", start: "top 70%", toggleActions: "play none none reverse" } }
+            );
+        });
+    </script>
 </body>
 </html>
